@@ -1,0 +1,70 @@
+﻿@model SmartRes_Official2019Data.Department
+@{
+    ViewBag.Title = "Add New Department";
+
+
+
+}
+
+
+<div class="col-md-10">
+    <div class="card">
+        <div class="card-heading border bottom">
+            <h4 class="card-title">Catergories</h4>
+        </div>
+        <div class="card-block">
+            <div class="mrg-top-40">
+
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="kt-portlet__body">
+
+
+                        <div class="form-group row">
+                            <div class="col-lg-5">
+                                <label>Category Name:</label>
+                                @Html.EditorFor(model => model.Department_Name, new { htmlAttributes = new { @class = "form-control", @placeholder = "Category Name" } })
+                                @Html.ValidationMessageFor(model => model.Department_Name, "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="col-lg-5">
+                                <label>Description:</label>
+                                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control", @placeholder = "Description" } })
+                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+
+                            </div>
+                        </div>
+
+
+                        <div class="kt-portlet__foot">
+                            <div class="kt-form__actions">
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <button type="submit" class="btn btn-primary">Add</button>
+                                        <button type="reset" class="btn btn-secondary">Cancel</button>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                    </div>
+
+                }
+
+
+            </div>
+            </div>
+        </div>
+    </div>
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }

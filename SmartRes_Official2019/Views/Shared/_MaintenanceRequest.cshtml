@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.MaintenanceRequest>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">Maintenance Requests</h4>
+               
+                <div class="table-overflow">
+                    <table class="table table-bordered table-hover table-sm">
+                        <tr>
+                           
+                            <th>
+                                @Html.DisplayNameFor(model => model.RoomNumber)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.MainIssue)
+                            </th>
+
+                            <th>
+                                @Html.DisplayNameFor(model => model.DateLoged)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.Status)
+                            </th>
+                            
+
+                          
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                               
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.RoomNumber)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MainIssue)
+                                </td>
+                               
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DateLoged)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Status)
+                                </td>
+                              
+
+                            
+                            </tr>
+                        }
+
+                    </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.Notification>
+
+@{
+    ViewBag.Title = "AllNotices";
+}
+
+<h2>All Notifications</h2>     
+<a href="@Url.Action("NoticeIndex","Message")" button class="btn"><i class="fa fa-backward"></i> Back</a>
+
+<div class="kt-portlet kt-portlet--mobile">
+    <div class="kt-portlet__head kt-portlet__head--lg">
+      
+        <table class="table">
+            <thead>
+
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NotType)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.message)
+                    </th>
+                  
+                     <th>
+                        @Html.DisplayNameFor(model => model.seen)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.NotDate)
+                    </th>
+                  
+                    <th></th>
+                </tr>
+                </thead>
+            <tbody>
+
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NotType)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.message)
+                        </td>
+                      
+                        <td>
+                            @Html.DisplayFor(modelItem => item.seen)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.NotDate)
+                        </td>
+                       
+                        <td>
+                        
+                        </td>
+                    </tr>
+                }
+                </tbody>
+
+</table>
+</div>
+</div>
+
+
+        <script type="text/javascript">
+        $('#my_list').dataTable(
+              {
+                  dom: 'Bfrtip',
+                  lengthMenu: [
+                      [10, 25, 50, -1],
+                      ['10 rows', '25 rows', '50 rows', 'Show all']
+                  ],
+                  buttons: [
+                      'pageLength', 'csv', 'pdf', 'print'
+                  ],
+                  language: { search: "" },
+                  select: true
+              }
+        );
+        $(".dataTables_filter input").addClass("search-input");
+        $(".dataTables_filter input").attr('placeholder', 'Search');
+        $('#my_list')
+           .removeClass('display')
+           .addClass('table table-striped table-hover');
+        </script>

@@ -1,0 +1,58 @@
+﻿@*@model IEnumerable<SmartRes_Official2019.Models.Room>
+
+    @{
+        ViewBag.Title = "RoomView";
+    }
+
+    <h2>RoomView</h2>*@
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+@model IEnumerable<SmartRes_Official2019Data.Residence>
+@{
+    ViewBag.Title = "RoomView";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">Select Residence</h4>
+                <p>
+                    Select from @Model.Count() Residences:
+                    <br /><br />
+                    @Html.ActionLink("Add Room", "Create")
+                    ||
+                    @Html.ActionLink("Add Residence", "Create", "Residences")
+
+                </p>
+                <ul>
+                    @foreach (var pro in Model)
+                    {
+
+                        <div class="w3-container">
+                            <h2></h2>
+
+                            <div class="w3-card-4 kt-img-centered" style="width:30%">
+
+                                @if (pro.ResidentPhoto != null)
+                {
+                    var base64 = Convert.ToBase64String(pro.ResidentPhoto);
+                    var ImgSource = string.Format("data:image/gif;base64,{0}", base64);
+                                    <img src="@ImgSource" width="150" height="150" />
+                                }
+                                <div class="w3-container w3-center">
+                                    <li>
+                                        @Html.ActionLink(pro.ResName, "Index", "Rooms", new { id = pro.ResId }, new { @class = "btn btn-block btn-lg btn-default icon-2 info-tooltip", @Title = "View Products" })<br />
+                                    </li>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    }
+                </ul>
+</div>
+</div>
+</div>
+</div>

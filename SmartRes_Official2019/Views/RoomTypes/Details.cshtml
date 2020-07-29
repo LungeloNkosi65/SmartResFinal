@@ -1,0 +1,32 @@
+﻿@model SmartRes_Official2019Data.RoomType
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>RoomType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.RmType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RmType)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumbOcupants)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumbOcupants)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RtypeId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

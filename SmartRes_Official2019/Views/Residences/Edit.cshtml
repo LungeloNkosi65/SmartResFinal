@@ -1,0 +1,79 @@
+﻿@model SmartRes_Official2019Data.Residence
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+<div class="form-horizontal">
+    <h4>Residence</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.ResId)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UnivbersityId, "University", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.DropDownList("UnivbersityId", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.UnivbersityId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ResName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.ResName, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ResName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.ResAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.ResAddress, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.ResAddress, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Capacity, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-5">
+            @Html.EditorFor(model => model.Capacity, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Capacity, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Gender_Allocation, new { @class = "col-md-2 control-label" })
+        <div class="col-md-5">
+            @Html.DropDownListFor(m => m.Gender_Allocation, new[] {
+            new SelectListItem (){ Text = "Female", Value ="Female"},
+            new SelectListItem () { Text = "Male", Value ="Male"},
+            new SelectListItem() { Text = "Both", Value = "Both" }},
+
+            "--Select Gender Allocation--", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Gender_Allocation, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

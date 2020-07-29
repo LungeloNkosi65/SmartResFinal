@@ -1,0 +1,42 @@
+﻿@model SmartRes_Official2019Data.Check_In
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Check_In</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Residence.ResName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Residence.ResName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Student.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Student.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date_In)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date_In)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.CheckinId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,91 @@
+﻿@model SmartRes_Official2019Data.MessageReplyViewModel
+
+
+<br />
+
+
+<link rel="stylesheet" href="~/Content/assets/vendors/summernote/dist/summernote.css" />
+
+<div class="col-md-10">
+    <div class="card">
+        <div class="card-heading border bottom">
+            <h4 class="card-title">Post Notice</h4>
+        </div>
+        <div class="card-block">
+            <div class="mrg-top-40">
+
+                @using (Html.BeginForm("PostMessage", "Message", FormMethod.Post, new { @id = "form-post-message", @class = "form-horizontal", enctype = "multipart/form-data" }))
+                {
+                    <div class="form-column col-lg-12 col-md-12 col-sm-12">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.To, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-7" id="A">
+                                <div>
+                                    <input type="radio" name="To" onclick="hide()" value="Student" /><span>Student</span>
+                                    <input type="radio" name="To" onclick="hide1()" value="Residence" /><span>Residence</span>
+                                </div>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Subject</label>
+                            <div class="col-sm-8">
+
+                                @Html.TextBoxFor(p => p.Message.Subject, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Message.Subject)
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">Message</label>
+                            <div class="col-sm-8">
+                                @Html.TextAreaFor(p => p.Message.MessageToPost, new { @rows = 8, @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Message.MessageToPost)
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                @*<input type="submit" value="Add" class="btn btn-default" />*@
+                                <button type="submit" class="btn btn-success">
+                                    <i class="icon-circle-arrow-right icon-large"></i> Post Message
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                }
+
+
+            </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+<script src="~/Content/assets/vendors/summernote/dist/summernote.min.js"></script>
+
+            @section Scripts {
+                <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+
+                <script>
+    CKEDITOR.replace("Body");
+                </script>
+
+                <script>
+        function aa(e)
+        {
+            @Model.To=e.value;
+            alert(e.value);
+        }
+                </script>
+            }

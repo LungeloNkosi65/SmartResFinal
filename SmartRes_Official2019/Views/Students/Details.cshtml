@@ -1,0 +1,83 @@
+﻿@model SmartRes_Official2019Data.Student
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 > Student Details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Surname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Surname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IdNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IdNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @if (User.IsInRole("Student"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.StudId })
+        @Html.ActionLink("Back to List", "Index")
+
+
+    }
+    else
+    {
+        @Html.ActionLink("Back to List", "AllStudents")
+
+    }
+</p>

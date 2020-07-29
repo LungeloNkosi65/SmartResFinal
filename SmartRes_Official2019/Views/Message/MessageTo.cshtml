@@ -1,0 +1,80 @@
+﻿@model SmartRes_Official2019Data.MessageReplyViewModel
+@using SmartRes_Official2019Data;
+
+
+
+
+@{
+    ApplicationDbContext db = new ApplicationDbContext();
+
+    int id = db.Messages.Select(x => x.Id).Max();
+    var record = db.Messages.Find(id);
+    ViewBag.Title = "MessageTo";
+}
+
+<h2>Click the link to continue....</h2>
+
+
+<li class="menu-has-children">
+    <ul>
+        <li><a data-toggle="modal" data-target="#activate">Continue....</a></li>
+
+    </ul>
+</li>
+
+<div class="modal fade" id="activate" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                @*<button type="button" class="close" data-dismiss="modal">&times;</button>*@
+                <h4 class="modal-title">Select Notice Receiver</h4>
+            </div>
+
+            @using (Html.BeginForm("MessageTo1", "Message", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="modal-body">
+
+                    @if (record.To == "Student")
+                    {
+                        <div class="form-group">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.StudentEmail, "Students Email", htmlAttributes: new { @class = "control-label col-md-8" })
+                                <div class="col-md-8">
+                                    @Html.DropDownList("StudentEmail", null, htmlAttributes: new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.StudentEmail, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+
+
+
+                    else
+                    {
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Residence, "Residence", htmlAttributes: new { @class = "control-label col-md-8" })
+                            <div class="col-md-8">
+                                @Html.DropDownList("Residence", null, htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.Residence, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    }
+
+
+                    <button class="w3-button" type="submit" style="width:100%;margin-top:5px;background-color: #32BEA6;color:white"> Send </button>
+
+                </div>
+            }
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+

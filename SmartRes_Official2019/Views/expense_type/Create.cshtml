@@ -1,0 +1,60 @@
+﻿@model SmartRes_Official2019Data.expense_type
+<div class="kt-portlet">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title">
+                Expense Type
+            </h3>
+        </div>
+    </div>
+    @using (Html.BeginForm())
+            {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.exps_id, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.exps_id, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.exps_id, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.exps_type, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.exps_type, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.exps_type, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.exps_code, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-5">
+                    @Html.EditorFor(model => model.exps_code, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.exps_code, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-3">
+                    <input type="submit" value="Create" class="btn btn-block btn-primary btn-sm" />
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+        </div>
+    </div>
+
+            <div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }

@@ -1,0 +1,222 @@
+﻿@model IEnumerable<SmartRes_Official2019.Models.Item>
+
+@{
+    ViewBag.Title = "Fall Catalog";
+}
+<h2 class="title text-center">Items out of stock</h2>
+<table class="table" id="myDataTable">
+    <thead>
+        <tr>
+            <th>
+                <strong>Picture</strong>
+            </th>
+            <th>
+                <strong>Item</strong>
+            </th>
+            <th>
+                <strong>Category</strong>
+            </th>
+            <th>
+                <strong> Price</strong>
+            </th>
+            <th></th>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (item.QuantityInStock == 0)
+            {
+                <tr>
+                    <td>
+                        @if (item.Picture != null)
+                        {
+                            var base64 = Convert.ToBase64String(item.Picture);
+                            var imgSrc = string.Format("data:image/gif;base64,{0}", base64);
+                            <img src="@imgSrc" width="60" height="70" />
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+
+                        <a href="@Url.Action(actionName: "add_to_cart", controllerName: "Stock", routeValues: new {id = item.ItemCode})" class="btn btn-default"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+
+                    </td>
+                </tr>
+            }
+
+        }
+    </tbody>
+</table>
+
+
+<hr />
+<h2 class="title text-center">Items below reorder-Level (5)</h2>
+<table class="table" id="below">
+    <thead>
+        <tr>
+            <th>
+                <strong>Picture</strong>
+            </th>
+            <th>
+                <strong>Item</strong>
+            </th>
+            <th>
+                <strong>Category</strong>
+            </th>
+            <th>
+                <strong>In Stock</strong>
+            </th>
+            <th>
+                <strong>In Stock</strong>
+            </th>
+            <th>
+                <strong> Price</strong>
+            </th>
+            <th></th>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (item.QuantityInStock < 5 && item.QuantityInStock != 0)
+            {
+                <tr>
+                    <td>
+                        @if (item.Picture != null)
+                        {
+                            var base64 = Convert.ToBase64String(item.Picture);
+                            var imgSrc = string.Format("data:image/gif;base64,{0}", base64);
+                            <img src="@imgSrc" width="60" height="70" />
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuantityInStock)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+
+                        <a href="@Url.Action(actionName: "add_to_cart", controllerName: "Stock", routeValues: new {id = item.ItemCode})" class="btn btn-default"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<hr />
+<h2 class="title text-center">All Other Items</h2>
+<table class="table" id="All">
+    <thead>
+        <tr>
+            <th>
+                <strong>Picture</strong>
+            </th>
+            <th>
+                <strong>Item</strong>
+            </th>
+            <th>
+                <strong>Category</strong>
+            </th>
+           <th>
+                <strong>In Stock</strong>
+            </th>
+            <th>
+                <strong> Price</strong>
+            </th>
+            <th></th>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            if (item.QuantityInStock >= 5 && item.QuantityInStock != 0)
+            {
+                <tr>
+                    <td>
+                        @if (item.Picture != null)
+                        {
+                            var base64 = Convert.ToBase64String(item.Picture);
+                            var imgSrc = string.Format("data:image/gif;base64,{0}", base64);
+                            <img src="@imgSrc" width="60" height="70" />
+                        }
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Category.Name)
+                    </td>
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.QuantityInStock)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                    <td>
+
+                        <a href="@Url.Action(actionName: "add_to_cart", controllerName: "Stock", routeValues: new { id = item.ItemCode })" class="btn btn-default"><i class="fa fa-shopping-cart"></i> Add to cart</a>
+
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<script type="text/javascript">
+    $('#myDataTable').dataTable(
+        {
+            dom: 'Bfrtip',
+            lengthMenu: [
+                [ 10, 25, 50, -1 ],
+                [ '10 rows', '25 rows', '50 rows', 'Show all' ]
+            ],
+            buttons: [
+                'pageLength', 'pdf', 'print'
+            ]
+        }
+    );
+    $('#All').dataTable(
+        {
+            dom: 'Bfrtip',
+            lengthMenu: [
+                [10, 25, 50, -1],
+                ['10 rows', '25 rows', '50 rows', 'Show all']
+            ],
+            buttons: [
+                'pageLength', 'pdf', 'print'
+            ]
+        }
+    );
+    $('#below').dataTable(
+        {
+            dom: 'Bfrtip',
+            lengthMenu: [
+                [10, 25, 50, -1],
+                ['10 rows', '25 rows', '50 rows', 'Show all']
+            ],
+            buttons: [
+                'pageLength', 'pdf', 'print'
+            ]
+        }
+    );
+</script>

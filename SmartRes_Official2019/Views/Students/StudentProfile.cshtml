@@ -1,0 +1,70 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.ViewModels.StudentProfile>
+
+@{
+    ViewBag.Title = "StudentProfile";
+}
+
+<h2>StudentProfile</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.StudentNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InitialSurname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ResName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RooNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+      
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.StudentNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InitialSurname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhoneNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ResName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RooNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProfileId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProfileId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProfileId })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,112 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.customerSt>
+
+@section Menu {
+    @Scripts.Render("~/Scripts/Tables/Data/menu")
+}
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+@Styles.Render("~/AdminLTE/plugins/datatables/css")
+@Styles.Render("~/AdminLTE/plugins/datatables/css")
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Hover Data Table</h3>
+            </div>
+            <div class="box-body">
+                <table id="example2" class="table table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            @*<th>
+                                @Html.DisplayNameFor(model => model.join_date)
+                            </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.UserPhoto)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NameIdentifier)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.last_name)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.mobile)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.email_id)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.address)
+                            </th>
+                            @*<th>
+                                @Html.DisplayNameFor(model => model.birth_date)
+                            </th>*@
+                            <th>
+                                @Html.DisplayNameFor(model => model.gender)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.status)
+                            </th>
+
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                @*<td>
+                                    @Html.DisplayFor(modelItem => item.join_date)
+                                </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.UserPhoto)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NameIdentifier)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.last_name)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.mobile)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.email_id)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.address)
+                                </td>
+                                @*<td>
+                                    @Html.DisplayFor(modelItem => item.birth_date)
+                                </td>*@
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.gender)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.status)
+                                </td>
+
+                                <td>
+                                    <a href=" @Html.ActionLink("Edit", "Edit", new { id = item.customer_id }) " rel="tooltip" title="Edit" class="btn btn-success btn-simple btn-xs"><i class="fa fa-edit"></i></a>
+                                      <a href=" @Html.ActionLink("Details", "Details", new { id = item.customer_id })" rel="tooltip" title="View" class="btn btn-info btn-simple btn-xs"><i class="fa fa-eye"></i><
+                                      <a href=" @Html.ActionLink("Delete", "Delete", new { id = item.customer_id })" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs"><i class="fa fa-times"></i></a>
+                                </td>
+                            </tr>
+
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/AdminLTE/plugins/datatables/js")
+    @Scripts.Render("~/Scripts/Tables/Data")
+}

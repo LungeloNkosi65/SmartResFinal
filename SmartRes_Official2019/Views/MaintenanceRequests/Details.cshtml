@@ -1,0 +1,91 @@
+﻿@model SmartRes_Official2019Data.MaintenanceRequest
+
+@{
+    ViewBag.Title = "Details";
+}
+
+
+<h2>Details</h2>
+
+<div>
+    <h4>Maintenance Request</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MainIssue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MainIssue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DateLoged)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateLoged)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusQpproved)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusQpproved)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.DateFixed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DateFixed)
+        </dd>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Em)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusQpproved)
+        </dd>*@
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MaintenanceId }) |
+    @Html.ActionLink("Back to List", "Index")
+
+    @if (User.IsInRole("Employee") || User.IsInRole("SystemAdmin"))
+    {
+        <a href="@Url.Action("Finished", "MaintenanceRequests", new { id = Model.MaintenanceId })" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">Done<i class="fa fa-times"></i></a>
+
+    }
+
+</p>

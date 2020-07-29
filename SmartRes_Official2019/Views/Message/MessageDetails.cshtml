@@ -1,0 +1,40 @@
+﻿@model SmartRes_Official2019Data.Message
+
+
+@{
+
+    ViewBag.Title = "MessageDetails";
+
+}
+
+
+<h2>Message Details</h2>
+
+
+<form action="/action_page.php">
+  
+        <div class="form-group">
+            <label for="email">Subject :</label>
+            <div>
+                @Html.DisplayFor(model => model.Subject)
+            </div>
+        </di  v>
+        <div class="form-group">
+            <label for="pwd">Message:</label>
+            <div>
+                @Html.DisplayFor(model => model.MessageToPost)
+            </div>
+
+        </div>
+        <div class="form-group">
+            <label for="pwd">DatePosted:</label>
+            <div>
+                @Html.DisplayFor(model => model.DatePosted)
+            </div>
+
+        </div>
+
+        @*<button type="submit" class="btn btn-default">Submit</button>*@
+  
+</form>
+

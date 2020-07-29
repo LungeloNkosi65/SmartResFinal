@@ -1,0 +1,77 @@
+﻿@model Anele.Shopify.Data.StockOrder
+@{
+    ViewBag.Title = "Quotation Request Sent";
+}
+
+<h2 class="title text-center">@ViewBag.Title</h2>
+<div class="row">
+    <div class="col-md-10 col-sm-6 col-xs-12">
+        <div class="info-box">
+            <span class="info-box-icon bg-green"><i class="fa fa-check"></i></span>
+            <div class="info-box-content">
+                <span class="info-box-number">Quotation successfully requested</span>
+                <br />
+                <b>The quotation document was generated and automatically sent to respective suppliers, we should now hear from them for business deals.</b>
+            </div><!-- /.info-box-content -->
+        </div><!-- /.info-box -->
+    </div><!-- /.col -->
+</div>
+<div class="row">
+    <div class="col-md-5">
+        <h4>Quotation Details</h4>
+        <table class="table">
+            <tr>
+                <th width="140px">Quotation ID</th>
+                <th>
+                    @Html.DisplayFor(x => x.Order_ID)
+                </th>
+            </tr>
+            <tr>
+                <th>Date Requested</th>
+                <th>
+                    @Model.date_created.ToLongDateString()
+                </th>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <th>
+                    @Html.DisplayFor(x => x.status)
+                </th>
+            </tr>
+        </table>
+    </div>
+    <div class="col-md-5">
+        <h4>Items in this quotation</h4>
+        <table class="table">
+            <tr>
+                <th>
+                   Name
+                </th>
+                
+                <th>
+                    Qty
+                </th>
+                <th>
+                    Status
+                </th>               
+            </tr>
+
+            @foreach (var item in (List<SmartRes_Official2019.Models.StockOrder_Item>)ViewBag.StockOrder_Items)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Item.Name)
+                    </td>
+                    
+                    <td>
+                        @Html.DisplayFor(modelItem => item.quantity)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StockOrder.status)
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>

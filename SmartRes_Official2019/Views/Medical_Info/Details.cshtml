@@ -1,0 +1,106 @@
+﻿@model SmartRes_Official2019Data.Medical_Info
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Medical_Info</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Have_Med)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Have_Med)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Med_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Med_Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Med_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Med_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Owner_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Owner_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Illness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Illness)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Illness_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Illness_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chronic_Medication)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chronic_Medication)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chronic_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chronic_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Parent_Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Parent_Details)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Parent_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Parent_Name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MedId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

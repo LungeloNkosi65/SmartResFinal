@@ -1,0 +1,63 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.SupplierRequest>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<hr/>
+    @Html.ActionLink("Create New", "Create")
+<hr/>
+
+<div class="kt-portlet">
+
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title">
+                Supplier Requests
+            </h3>
+        </div>
+    </div>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ProductQuantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.SupplierID)
+                </th>*@
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductQuantity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.SupplierID)
+                    </td>*@
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.SupplierRequestID }) |
+                    @*   @Html.ActionLink("Details", "Details", new { id=item.SupplierRequestID }) |*@
+                    @Html.ActionLink("Send email", "SendEmail", new { id = item.SupplierRequestID }) |
+
+                    @Html.ActionLink("Delete", "Delete", new { id = item.SupplierRequestID })
+                </td>
+            </tr>
+        }
+
+    </table>
+    </div>

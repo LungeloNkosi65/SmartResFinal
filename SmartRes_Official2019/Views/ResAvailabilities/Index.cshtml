@@ -1,0 +1,93 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.ResAvailability>
+
+<p>@Html.ActionLink("Back to universities", "UniversityView")</p>
+<div class="kt-portlet">
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-block">
+                    <h4 class="card-title">Res Availability</h4>
+
+                    <div class="table-overflow">
+                        <table class="table table-bordered table-hover table-sm">
+                            @using (Html.BeginForm())
+                            {
+
+                                <p style="text-align:right;">
+                                    Find : @Html.TextBox("SearchString", "", new { placeholder = "Search by Gender,Res" })
+                                    <input type="submit" value="Search" />
+                                </p>
+
+                            }
+                            <div class="box-body">
+                                <table class="table table-hover table-striped" id="my_list">
+                                    <thead>
+                                        <tr class="table-header-row">
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Residence.ResName)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Quantity)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.NumAvailable)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.CheckedIN)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.BookedSpaces)
+                                            </th>
+                                            <th>
+                                                @Html.DisplayNameFor(model => model.Gender)
+                                            </th>
+
+                                            @*<th></th>*@
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Residence.ResName)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Quantity)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.NumAvailable)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.CheckedIN)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.BookedSpaces)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Gender)
+                                                </td>
+
+                                                @*<td>
+
+
+
+                                                        @Html.ActionLink("Edit", "Edit", new { id = item.ResAvsilId }) |
+                                                        @Html.ActionLink("Details", "Details", new { id = item.ResAvsilId }) |
+                                                        @Html.ActionLink("Delete", "Delete", new { id = item.ResAvsilId })
+
+                                                    </td>*@
+                                            </tr>
+                                        }
+                                    </tbody>
+
+                                </table>
+                            </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+

@@ -1,0 +1,94 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.SAN_Employee>
+
+@{
+    ViewBag.Title = "San Employee";
+}
+
+<h2>
+    @if (User.IsInRole("Employee"))
+    {
+        <h21> Employee Details</h21>
+
+    }
+    else if (User.IsInRole("SystemAdmin"))
+    {
+        <h21> Employee Details</h21>
+    }
+</h2>
+
+<p>
+    <hr /> @Html.ActionLink("Complete Profile", "Create")<hr />
+    @if (User.IsInRole("SystemAdmin"))
+    {
+        @Html.ActionLink("Register Employee", "Register", "Account")
+
+    }
+</p>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">Maintenance Suppliers </h4>
+
+                <div class="table-overflow">
+                    <table class="table table-bordered table-hover table-sm">
+                        <thead>
+                            <tr class="table-header-row">
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Surname)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Eamil)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Gender)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Surname)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Eamil)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Gender)
+                                    </td>
+                                    @*<td>
+                                            <a href="@Html.ActionLink("Edit", "Edit", new { id = item.EmpID }) " rel="tooltip" title="Edit" class="btn btn-success btn-simple btn-xs"><i class="fa fa-edit"></i></a>
+                                            <a href="@Html.ActionLink("Details", "Details", new { id = item.EmpID }) " rel="tooltip" title="View" class="btn btn-info btn-simple btn-xs"><i class="fa fa-eye"></i></a>
+                                            <a href="@Html.ActionLink("Delete", "Delete", new { id = item.EmpID })" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs"><i class="fa fa-times"></i></a>
+                                        </td>*@
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+

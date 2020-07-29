@@ -1,0 +1,103 @@
+﻿@model List<SmartRes_Official2019.Models.StockOrder_Item>
+@{
+    ViewBag.Title = "Review Quotation Details";
+}
+
+<h2 class="title text-center">@ViewBag.Title</h2>
+
+<div class="row">
+    <div class="col-md-5">
+        <h4>Quotation Details</h4>
+        <table class="table">
+            <tr>
+                <th width="140px">Quotation ID</th>
+                <th width="200px">
+                    @ViewBag.Order.Order_ID
+                </th>
+            </tr>
+            <tr>
+                <th>Date Requested</th>
+                <th>
+                    @ViewBag.Order.date_created.ToLongDateString()
+                </th>
+            </tr>
+            <tr>
+                <th>Status</th>
+                <th>
+                    @ViewBag.Order.status
+                </th>
+            </tr>
+        </table>
+    </div>
+</div>
+
+@using (Html.BeginForm())
+{
+    <table class="table">
+        <tr>
+            <th hidden="hidden"></th>
+            <th>Picture</th>
+            <th>
+                Name
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Price 
+            </th>
+            @*<th></th>*@
+        </tr>
+
+        @for (int item = 0; item < Model.Count(); item++)
+        {
+            <tr>
+                <td hidden="hidden">
+                    @Html.EditorFor(modelItem => Model[item].Order_Item_id)
+                </td>
+                <td>
+                    @{
+                        SmartRes_Official2019.Models.ApplicationDbContext db = new SmartRes_Official2019.Models.ApplicationDbContext();
+
+                        var pic = db.Items.Find(Model[item].item_id);
+                        var name = db.Items.Find(Model[item].item_id).Name;
+                    }
+                    @if (pic != null)
+                    {
+                        var base64 = Convert.ToBase64String(pic.Picture);
+                        var imgSrc = string.Format("data:image/gif;base64,{0}", base64);
+                        <img src="@imgSrc" width="60" height="70" />
+                    }
+                </td>
+                <td>
+                    @name
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[item].quantity)
+                </td>
+                <td>
+                    R @Html.DisplayFor(modelItem => Model[item].price)
+                </td>
+                @*<td>
+                        <a href="@Url.Action("remove_from_cart", "Item", new {id = Model[item].cart_item_id})" class="btn btn-default"><i class="fa fa-times"></i> Remove</a>
+                    </td>*@
+            </tr>
+                        }
+        <tr>
+            <td hidden="hidden"></td>
+            <td></td>
+            <td></td>
+            <td>
+                @*<a href="@Url.Action("Fall_catalog", "Item")" class="btn btn-default"><i class="fa fa-arrow-left"></i> Back to Fall Catalog</a>*@
+            </td>
+            <th>
+                <a href="@Url.Action("respond_to_quote", "Stock", new { id = Session["order_id"] , supplier = Session["supplier_id"], status = "reject"  })" class="btn btn-danger"><i class="fa fa-times"></i> Decline Quote</a>
+                <a href="@Url.Action("respond_to_quote", "Stock", new { id = Session["order_id"] , supplier = Session["supplier_id"], status = "accept"  })" class="btn btn-success"><i class="fa fa-check"></i> Accept Quote</a>
+                
+            </th>
+            <td></td>
+        </tr>
+    </table>
+
+                        }
+

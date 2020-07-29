@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.WeekDays>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">Add Week Day</h4>
+
+                <div class="table-overflow">
+                    <table class="table table-bordered table-hover table-sm">
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.CurrDayofWeek)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.CurrDayofWeek)
+                                </td>
+                                <td>
+                                    @Html.ActionLink("Edit", "Edit", new { id = item.WkdId }) |
+                                    @Html.ActionLink("Details", "Details", new { id = item.WkdId }) |
+                                    @Html.ActionLink("Delete", "Delete", new { id = item.WkdId })
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+                </div>
+</div>
+</div>
+</div>

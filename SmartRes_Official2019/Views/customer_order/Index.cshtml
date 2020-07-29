@@ -1,0 +1,250 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.customer_order>
+@using Microsoft.AspNet.Identity
+
+<p>
+    @Html.ActionLink("Add New", "Create")
+</p>
+
+
+
+
+
+
+
+@*<div class="kt-portlet__body">
+
+
+    <div class="kt-portlet">
+
+        <div class="kt-portlet__head">
+            <div class="kt-portlet__head-label">
+                <h3 class="kt-portlet__head-title">
+                    Student Order
+                </h3>
+            </div>
+        </div>
+        @using (Html.BeginForm())
+        {
+
+            <p style="text-align:right;">
+                Find : @Html.TextBox("SearchString", "", "Service,Date")
+                <input type="submit" value="Search" />
+            </p>
+
+        }
+
+
+
+        <table class="table table-striped- table-bordered table-hover table-checkable" id="kt_table_1">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Cloths.cloth_Type)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.services.service_name)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.order_date)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.total_qty)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.total_balance)
+                    </th>
+
+                    <th>
+                        @Html.DisplayNameFor(model => model.total_paid)
+                    </th>
+                    <th>
+                        @Html.DisplayName("Action")
+                    </th>
+
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @foreach (var item in Model)
+            {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Cloths.cloth_Type)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.services.service_name)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.order_date)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.total_qty)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.total_balance)
+                        </td>
+
+                        <td>
+                            @Html.DisplayFor(modelItem => item.total_paid)
+                        </td>
+
+                        <td>
+                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                        </td>
+
+                    </tr>
+                }
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+        </div>*@
+
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="container">
+            <div class="card">
+                <div class="pdd-vertical-5 pdd-horizon-10 border bottom print-invisible">
+                    <ul class="list-unstyle list-inline text-right">
+                        <li class="list-inline-item">
+                            <a href="#" class="btn text-gray text-hover display-block padding-10 no-mrg-btm" onclick="window.print();">
+                                <i class="ti-printer text-info pdd-right-5"></i>
+                                <b>Print</b>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="card-body">
+                    <div class="pdd-horizon-30">
+                        <div class="mrg-top-15">
+                            <div class="inline-block">
+                                <img class="img-responsive" src="~/Content/assets/images/logo/logo.png" alt="">
+                                <address class="pdd-left-10 mrg-top-20">
+                                    <b class="text-dark">SmartRes, Inc.</b><br>
+                                    <span>47 Gillespie Street</span><br>
+                                    <span>South Beach, Durban 4001</span><br>
+                                    <abbr class="text-dark" title="Phone">Phone:</abbr>
+                                    <span>(031) 456-7890</span>
+                                </address>
+                            </div>
+                            <div class="pull-right">
+                                <h2>INVOICE</h2>
+                            </div>
+                        </div>
+                        <div class="row mrg-top-20">
+                            <div class="col-md-9 col-sm-9">
+                                <h3 class="pdd-left-10 mrg-top-10">Invoice To: @User.Identity.GetUserName()</h3>
+                                @*<address class="pdd-left-10 mrg-top-10">
+                                        <b class="text-dark">Eastern Holdings.</b><br>
+                                        <span>8626 Maiden Dr. </span><br>
+                                        <span>Niagara Falls, New York 14304</span>
+                                    </address>*@
+                            </div>
+                            <div class="col-md-3 col-sm-3">
+                                @*@foreach (var item in Model)
+                                    {
+                                        <div class="mrg-top-80">
+                                            <div class="text-dark text-uppercase inline-block"><b>Invoice No :</b></div>
+                                            <div class="pull-right">@Html.DisplayFor(model => item.invoice_no)</div>
+                                        </div>
+                                                    <div class="">
+                                                        <div class="text-dark text-uppercase inline-block"><b>Date :</b></div>
+                                                        <div class="pull-right">@Html.DisplayFor(model => item.order_date)</div>
+                                                    </div>
+                                    }*@
+                            </div>
+
+                        </div>
+                        <div class="row mrg-top-20">
+                            <div class="col-md-12">
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+
+                                            <th>@Html.DisplayNameFor(model => model.Cloths.cloth_Type)</th>
+                                            <th>@Html.DisplayNameFor(model => model.total_qty)</th>
+                                            <th>@Html.DisplayNameFor(model => model.services.service_name)</th>
+                                            <th>@Html.DisplayNameFor(model => model.total_balance)</th>
+                                            <th>@Html.DisplayNameFor(model => model.total_paid)</th>
+                                            <th></th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        @foreach (var item in Model)
+                                        {
+                                            <tr>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.Cloths.cloth_Type)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.total_qty)
+                                                </td>
+
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.services.service_name)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.total_balance)
+                                                </td>
+                                                <td>
+                                                    @Html.DisplayFor(modelItem => item.total_paid)
+                                                </td>
+                                                <td>
+                                                    <a href="@Url.Action("Delete", "customer_order", new { id = item.ID })" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">Remove<i class="fa fa-times"></i></a>
+
+                                                </td>
+                                            </tr>
+
+
+                                        }
+
+                                    </tbody>
+                                </table>
+                                <div class="row mrg-top-30">
+                                    <div class="col-md-12">
+                                        <div class="pull-right text-right">
+
+                                            <hr>
+                                            <h3><b>Total R @Model.Sum(x => x.total_paid)</b> </h3>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mrg-top-30">
+                                    <div class="col-md-12">
+                                        <div class="border top bottom pdd-vertical-20">
+                                            <p class="text-opacity"><small>In exceptional circumstances, Financial Services can provide an urgent manually processed special cheque. Note, however, that urgent special cheques should be requested only on an emergency basis as manually produced cheques involve duplication of effort and considerable staff resources. Requests need to be supported by a letter explaining the circumstances to justify the special cheque payment.</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mrg-vertical-20">
+                                    <div class="col-md-6">
+                                        <img class="img-responsive text-opacity mrg-top-5" width="100" src="~/Content/assets/images/logo/logo.png" alt="">
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <small><b>Phone:</b> (031) 456-7890</small>
+                                        <br>
+                                        <small>support@smartres.co.za</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

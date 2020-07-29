@@ -1,0 +1,65 @@
+﻿@model SmartRes_Official2019Data.TemporaryBooking
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>TemporaryBooking</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Residence.ResName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Residence.ResName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookedUniversity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookedUniversity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.IDNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.IDNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OTPCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OTPCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookingDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookingDate)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BookingId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

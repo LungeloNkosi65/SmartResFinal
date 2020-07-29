@@ -1,0 +1,105 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.Students_Dummy>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Students Dummy</h2>
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+
+
+    
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">Student Database</h4>
+
+                <div class="table-overflow">
+                    <table class="table table-bordered table-hover table-sm">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.StudentNumber)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Surname)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Gender)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.StudentEmail)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.IdNumber)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Student_Type)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.StudentNumber)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Surname)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Gender)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.StudentEmail)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IdNumber)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Student_Type)
+                                    </td>
+                                    <td>
+
+
+                                        <a href="@Url.Action("Details","Students_Dummy", new { id=item.StudentNumber })" rel="tooltip" title="View" class="btn btn-info btn-simple btn-xs"><i class="fa fa-eye"></i></a>
+                                        @if (User.IsInRole("SAN") || User.IsInRole("SystemAdmin"))
+                                        {
+                                            <a href="@Url.Action("Delete", "Students_Dummy", new { id = item.StudentNumber })" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs"><i class="fa fa-times"></i></a>
+                                            <a href="@Url.Action("Edit","Students_Dummy", new { id=item.StudentNumber })" rel="tooltip" title="Edit" class="btn btn-success btn-simple btn-xs"><i class="fa fa-edit"></i></a>
+
+                                        }
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+      </div>
+        </div>
+    </div>
+

@@ -1,0 +1,90 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.TemporaryBooking>
+
+<hr />@Html.ActionLink("Creare new Booking", "Create")<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">Laundry Price List</h4>
+
+                <div class="table-overflow">
+                    <table class="table table-bordered table-hover table-sm">
+                        <thead>
+                            <tr class="table-header-row">
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Residence.ResName)
+                                </th>
+                                @*<th>
+                                        @Html.DisplayNameFor(model => model.BookedUniversity)
+                                    </th>*@
+                                <th>
+                                    @Html.DisplayNameFor(model => model.StudentNumber)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.IDNumber)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.OTPCode)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.BookingDate)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Residence.ResName)
+                                    </td>
+                                    @*<td>
+                                            @Html.DisplayFor(modelItem => item.BookedUniversity)
+                                        </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.StudentNumber)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.IDNumber)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.OTPCode)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.BookingDate)
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("Details","TemporaryBookings", new { id=item.BookingId })" rel="tooltip" title="View" class="btn btn-info btn-simple btn-xs"><i class="fa fa-eye"></i></a>
+                                        <a href="@Url.Action("Edit","TemporaryBookings", new { id=item.BookingId })" rel="tooltip" title="Edit" class="btn btn-success btn-simple btn-xs"><i class="fa fa-edit"></i></a>
+                                        <a href="@Url.Action("Delete", "TemporaryBookings", new { id = item.BookingId })" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs"><i class="fa fa-times"></i></a>
+
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                <script type="text/javascript">
+                    $('#my_list').dataTable(
+                        {
+                            dom: 'Bfrtip',
+                            lengthMenu: [
+                                [10, 25, 50, -1],
+                                ['10 rows', '25 rows', '50 rows', 'Show all']
+                            ],
+                            buttons: [
+                                'pageLength', 'pdf', 'print'
+                            ]
+                        }
+                    );
+                    $('#my_list')
+                        .removeClass('display')
+                        .addClass('table table-striped table-hover');
+                </script>

@@ -1,0 +1,120 @@
+﻿@model SmartRes_Official2019Data.MailModel
+
+@*@{
+        ViewBag.Title = "Index";
+    }
+
+    @{
+        ViewBag.Title = "Index";
+    }*@
+<script src="~/Scripts/jquery-1.7.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        if ('@ViewBag.Message' == 'Sent') {
+            alert('Mail has been sent successfully');
+        }
+    });
+
+      
+</script>
+
+@*<legend>Send Email </legend>
+    @using (@Html.BeginForm("Index", "SendEmail", FormMethod.Post, new { @id = "form1", @enctype = "multipart/form-data" }))
+    {
+        @Html.ValidationSummary() <input type="submit" value="Send" />
+        @Html.Raw(TempData["Message"])
+
+
+        <table>
+            <tbody>
+                <tr>
+                    <td>To:</td>
+                    <td>@Html.TextBoxFor(m => m.To)</td>
+                </tr>
+                <tr>
+                    <td>Subject:</td>
+                    <td>@Html.TextBoxFor(m => m.Subject)</td>
+                </tr>
+                <tr>
+                    <td>Attachment</td>
+                    <td><input name="fileUploader" type="file" /></td>
+                </tr>
+                <tr>
+                    <td>Body:</td>
+                    <td>@Html.TextAreaFor(m => m.Body)</td>
+                </tr>
+            </tbody>
+        </table>
+
+    }*@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Temper Contact Form Flat Responsive Widget Template | Home :: w3layouts</title>
+    @*<link href="Content/style1.css" rel="stylesheet" type="text/css" media="all" />*@
+    <link href="~/Content/style1.css" rel="stylesheet" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Temper Contact Form Responsive, Login form web template, Sign up Web Templates, Flat Web Templates, Login signup Responsive web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <!--web-fonts-->
+    <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+</head>
+<link href="//fonts.googleapis.com/css?family=Arvo:400,400i,700,700i" rel="stylesheet">
+<!--web-fonts-->
+<body>
+    <!---header--->
+    <!---header--->
+    <!---main--->
+    <br/>
+    <h2>Email LogIn Details</h2>
+    <div class="row">
+        <div class="col-md-9">
+            <section id="loginForm" style="width:600px">
+               
+                @using (@Html.BeginForm("Index", "SendEmail", FormMethod.Post, new { @id = "form1", @enctype = "multipart/form-data" }))
+                {
+                    @*<form action="#" method="post">*@
+                    @Html.AntiForgeryToken()
+                    <div class="row">
+                        <div class="contact-left-w3">
+                            <label>Email</label>
+                            @Html.TextBoxFor(m => m.To, new { @class = "form-control", placeholder = "Email" })
+                            @Html.ValidationMessageFor(m => m.To, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="clear"></div>
+                    </div>
+                    @*<label>Subject</label>
+                        @Html.TextBoxFor(m => m.Subject, new { @class = "form-control", placeholder = "Subject" })
+                        @Html.ValidationMessageFor(m => m.Subject, "", new { @class = "text-danger" })
+
+                        <div class="row1">
+                            <label>Message</label>
+                            @Html.TextAreaFor(m => m.Body, new { @class = "form-control", placeholder = "Message" })
+                            @Html.ValidationMessageFor(m => m.Body, "", new { @class = "text-danger" })
+                        </div>
+
+
+                        <div class="row1">
+                            <label>Attachment</label>
+                            <input name="fileUploader" type="file" />
+
+                        </div>*@
+
+
+                    <input type="submit" value="Send message">
+                    @*</form>*@
+
+                }
+             </section>
+         </div>
+     </div>
+
+
+
+                <!---main--->
+</body>
+</html>
+

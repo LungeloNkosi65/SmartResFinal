@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.PDF>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">Students Checklist</h4>
+
+                <div class="table-overflow">
+                    <table class="table table-bordered table-hover table-sm">
+                        <thead>
+                            <tr class="table-header-row">
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Email)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.location)
+                                </th>
+
+                                @*<th>
+                                        @Html.DisplayNameFor(model => model.file)
+                                    </th>*@
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.location)
+                                    </td>
+                                    @*<td>
+                                            @Html.DisplayFor(modelItem => item.file)
+                                        </td>*@
+                                    <td>
+                                        @*@Html.ActionLink("Edit", "Edit", new { id=item.num }) |*@
+                                        <a href="@Url.Action("Details","PDFs", new { id=item.num })" rel="tooltip" title="View" class="btn btn-info btn-simple btn-xs"><i class="fa fa-eye"> Details</i></a>
+                                        <a href="@Url.Action("Edit","PDFs", new { id=item.num })" rel="tooltip" title="Edit" class="btn btn-success btn-simple btn-xs"><i class="fa fa-edit">Edit</i></a>
+                                        <a href="@Url.Action("Download","PDFs", new { id=item.num })" rel="tooltip" title="Download" class="btn btn-success btn-simple btn-xs"><i class="fa fa-download">Download</i></a>
+                                          <a href="@Url.Action("Delete", "PDFs", new { id = item.num })" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs"><i class="fa fa-times">Delete</i></a>
+                                    </td>
+                                </tr>
+                            }
+
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    </div>
+

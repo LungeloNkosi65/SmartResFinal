@@ -1,0 +1,112 @@
+﻿@model SmartRes_Official2019Data.Medical_Info
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Medical_Info</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.StudentEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StudentEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Have_Med)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Have_Med)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Med_Number)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Med_Number)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Med_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Med_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Owner_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Owner_Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Illness)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Illness)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Illness_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Illness_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chronic_Medication)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chronic_Medication)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chronic_Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chronic_Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Parent_Details)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Parent_Details)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Parent_Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Parent_Name)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

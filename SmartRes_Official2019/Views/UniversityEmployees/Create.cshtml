@@ -1,0 +1,90 @@
+﻿@model SmartRes_Official2019Data.UniversityEmployee
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+
+    @using (Html.BeginForm("Create", "UniversityEmployees", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <div class="kt-portlet">
+            <div class="kt-portlet__head">
+                <div class="kt-portlet__head-label">
+                    <h3 class="kt-portlet__head-title">
+                        Complete Profile
+                    </h3>
+                </div>
+            </div>
+
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UnivbersityId, "University", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("UnivbersityId", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.UnivbersityId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Surname, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Surname, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Surname, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Gender, new { @class = "col-md-2 control-label" })
+                <div class="col-md-5">
+                    @Html.DropDownListFor(m => m.Gender, new[] {
+                            new SelectListItem (){ Text = "Female", Value ="Female"},
+                            new SelectListItem () { Text = "Male", Value ="Male"} },
+
+                            "--Select Gender --", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.UserPhoto, htmlAttributes: new { @class = "control-label col-md-2" })
+
+
+                <div class="input-group-addon">
+                    <i class="fa fa-file-picture-o"></i>
+                </div>
+                <input type="file" name="filelist" accept=".jpeg,.jpg,.png" onchange="readURL(this);" class="form-control" required="required" />
+            </div>
+
+
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to My Profile", "Index")
+    </div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

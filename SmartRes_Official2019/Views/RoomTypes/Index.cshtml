@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.RoomType>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+
+<hr />
+@Html.ActionLink("Add Room Type", "Create")
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">Maintenance Requests</h4>
+
+                <div class="table-overflow">
+                    <table class="table table-bordered table-hover table-sm">
+                        <thead>
+                            <tr class="table-header-row">
+
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.RmType)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.NumbOcupants)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.RmType)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.NumbOcupants)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.RtypeId })
+                                        @Html.ActionLink("Details", "Details", new { id = item.RtypeId })
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.RtypeId })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+</div>

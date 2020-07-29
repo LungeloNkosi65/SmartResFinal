@@ -1,0 +1,69 @@
+﻿@model SmartRes_Official2019Data.Student_Otp
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    @{
+    Layout = null;
+    ViewBag.Title = "OTP";
+    var msg = TempData["message"] ?? string.Empty;
+}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Access Verifcation Code</title>
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+
+
+    <link href="~/assets/AdminLTE/plugins/ionicons/css/ionicons.min.css" rel="stylesheet" />
+    <link href="~/assets/AdminLTE/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/assets/AdminLTE/dist/css/admin-lte.min.css" rel="stylesheet" />
+
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="login-logo">
+            <a href="@Url.Action("Index", "Home")">Welcome to <b>SmartRes!</b></a>
+        </div>
+        <div class="login-box-body">
+            <p class="login-box-msg">Enter in your access code to start your session</p>
+         @using (Html.BeginForm())
+         {
+                @Html.AntiForgeryToken()
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group has-feedback">
+                    @Html.TextBoxFor(m => m.OTP, new { @class = "form-control", placeholder = "Access verification code" })
+                    @Html.ValidationMessageFor(m => m.OTP, "", new { @class = "text-danger" })
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Verify</button>
+                    </div>
+                </div>
+           }
+            <br />
+            <br />
+            @*<a href="#">I forgot my password</a><br>*@
+            <a href="@Url.Action("Register", "Account")" class="text-center">Have an account?, Sign in</a>
+        </div>
+    </div>
+
+    <script src="~/assets/AdminLTE/plugins/jquery/js/jQuery-2.1.4.min.js"></script>
+    <script src="~/assets/AdminLTE/plugins/bootstrap-slider/js/bootstrap-slider.js"></script>
+    <script src="~/assets/AdminLTE/plugins/jquery-validate/js/jquery.validate.js"></script>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+
+</body>
+
+
+
+
+
+</html>

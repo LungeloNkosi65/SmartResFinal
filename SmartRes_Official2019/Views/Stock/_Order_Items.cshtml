@@ -1,0 +1,85 @@
+﻿@model IEnumerable<SmartRes_Official2019.Models.StockOrder_Item>
+
+x
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Item.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Order.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.replied)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_replied)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.accepted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_accepted)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.shipped)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.date_shipped)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Order.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.replied)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_replied)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.accepted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_accepted)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.shipped)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.date_shipped)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Order_Item_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Order_Item_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Order_Item_id })
+        </td>
+    </tr>
+}
+
+</table>

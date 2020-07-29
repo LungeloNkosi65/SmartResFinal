@@ -1,0 +1,58 @@
+﻿@model SmartRes_Official2019Data.Room
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Room</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Residence.ResName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Residence.ResName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomType.RmType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomType.RmType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RoomNumber)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RoomNumber)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Floor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Floor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RoomId }) |
+    @Html.ActionLink("Back to List", "Index",new { id = Model.ResId })
+</p>

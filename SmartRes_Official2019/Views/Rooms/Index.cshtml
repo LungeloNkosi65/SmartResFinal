@@ -1,0 +1,113 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.Room>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<hr/>@Html.ActionLink("Create New", "Create") ||
+@Html.ActionLink("Back To Residences", "RoomView")<hr/>
+<div class="kt-portlet">
+
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title">
+                Residence Rooms
+            </h3>
+        </div>
+    </div>
+    @using (Html.BeginForm())
+    {
+
+        <p style="text-align:right;">
+            Find: @Html.TextBox("SearchString", "", new { placeholder = "Search by status" })
+            <input type="submit" value="Search" />
+        </p>
+
+    }
+   <div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">Rooms</h4>
+
+                <div class="table-overflow">
+                    <table class="table table-bordered table-hover table-sm">
+                        <thead>
+                            <tr class="table-header-row">
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Residence.ResName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.RoomType.RmType)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.RoomNumber)
+                                </th>
+                                @*<th>
+                                        @Html.HiddenFor(model => model.Floor)
+                                    </th>*@
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Status)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Space)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Residence.ResName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.RoomType.RmType)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.RoomNumber)
+                                    </td>
+                                    @*<td>
+                                            @Html.HiddenFor(modelItem => item.Floor)
+                                        </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Status)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Space)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.RoomId })
+                                        @Html.ActionLink("Details", "Details", new { id = item.RoomId })
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.RoomId })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </div>
+     </div>
+    <script type="text/javascript">
+        $('#my_list').dataTable(
+            {
+                dom: 'Bfrtip',
+                lengthMenu: [
+                    [10, 25, 50, -1],
+                    ['10 rows', '25 rows', '50 rows', 'Show all']
+                ],
+                buttons: [
+                    'pageLength', 'pdf', 'print'
+                ]
+            }
+        );
+        $('#my_list')
+            .removeClass('display')
+            .addClass('table table-striped table-hover');
+    </script>
+

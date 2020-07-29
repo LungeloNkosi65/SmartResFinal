@@ -1,0 +1,66 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.expense_type>
+
+@Scripts.Render("~/Scripts/Tables/Data/menu")
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@Styles.Render("~/AdminLTE/plugins/datatables/css")
+@Styles.Render("~/AdminLTE/plugins/datatables/css")
+
+<div class="kt-portlet">
+
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title">
+                Expense Type
+            </h3>
+        </div>
+    </div>
+
+    <table id="example2" class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.exps_type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.exps_code)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.exps_type)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.exps_code)
+                    </td>
+                    <td>
+                        <a href="@Html.ActionLink("Edit", "Edit", new { id = item.exps_id })" rel="tooltip" title="Edit" class="btn btn-success btn-simple btn-xs"><i class="fa fa-edit"></i></a>
+                        <a href="@Html.ActionLink("Details", "Details", new { id = item.exps_id })" rel="tooltip" title="View" class="btn btn-info btn-simple btn-xs"><i class="fa fa-eye"></i></a>
+                        <a href="@Html.ActionLink("Delete", "Delete", new { id = item.exps_id })" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs"><i class="fa fa-times"></i></a>
+                    </td>
+                </tr>
+
+            }
+        </tbody>
+    </table>
+
+</div>
+
+        </div>
+    </div>
+
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/AdminLTE/plugins/datatables/js")
+    @Scripts.Render("~/Scripts/Tables/Data")
+}

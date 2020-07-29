@@ -1,0 +1,29 @@
+﻿@*@model SmartRes_Official2019Data.PDF
+
+@{
+    ViewBag.Title = "Download";
+}
+
+<h2>Download</h2>*@
+
+@model SmartRes_Official2019Data.PDF
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+    </style>
+</head>
+<body>
+    @using (Html.BeginForm("ViewPDF", "Home", FormMethod.Post))
+    {
+        <a href="javascript:;" onclick="document.forms[0].submit();">View PDF</a>
+        <hr />
+        @Html.Raw(TempData["Embed"])
+    }
+</body>
+</html>

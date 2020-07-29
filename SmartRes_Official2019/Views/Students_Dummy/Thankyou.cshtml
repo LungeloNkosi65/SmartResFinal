@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Thankyou";
+
+    var msg = TempData["message"] ?? string.Empty;
+
+
+}
+<script>
+    var message = '@msg';
+    if (message)
+        alert(message);
+</script>
+
+
+<h2><strong>Thank You Agian</strong></h2>
+

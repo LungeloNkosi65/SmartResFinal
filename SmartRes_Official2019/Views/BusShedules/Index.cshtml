@@ -1,0 +1,172 @@
+﻿@model IEnumerable<@model SmartRes_Official2019Data.BusShedule>
+@{
+    /**/
+
+    ViewBag.Title = "Index";
+}
+
+
+
+<style>
+    .card {
+        box-shadow: 0 4px 8px 0 rgba(108, 103, 103, 0.00);
+        transition: 0.2s;
+        width: 60%;
+    }
+
+        .card:hover {
+            box-shadow: 0 8px 16px 0 DodgerBlue;
+        }
+
+    .container {
+        padding: 2px 16px;
+    }
+</style>
+@*<h2>Select WeekDays</h2>
+    <p>
+        Select from @Model.Count() WeekDays:
+        @Html.ActionLink("Create New", "Create")
+
+
+    </p>
+    <ul>
+        @foreach (var pro in Model)
+        {
+            <li>
+                @Html.ActionLink(pro.CurrDayofWeek, "ScheduleView", "BusShcedules", new { id = pro.WkdId }, new { @class = "btn btn-block btn-lg btn-default icon-2 info-tooltip", @Title = "View Products" })<br />
+            </li>
+        }
+    </ul>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+    ul {
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    li {
+        display: inline-block;
+        vertical-align: top;
+    }
+</style>
+<link href="~/Content/materialize.min.css" rel="stylesheet" />
+<hr />
+
+
+
+
+
+
+
+
+
+
+<section class="inventory py-5" id="inventory">
+    <div class="container">
+        <div class="container text-capitalize text-center d-flex justify-content-between">
+
+            @if (User.IsInRole("SystemAdmin") || User.IsInRole("Employee"))
+            {
+                <h4 class="btn btn-primary" }>
+                    @Html.ActionLink("Add Schedule", "Create", "BusSchedules")
+                </h4>
+
+            }
+
+        </div>
+
+        <div class="ro">
+            @foreach (var item in Model.Where(x => x.Destination == "From Res To Campus").Distinct())
+            {
+                <div class="col-10 mx-auto my-3 col-md-6 col-lg-4" n}>
+                    <div class="card car-card">
+
+                        <div class="card-footer text-capitalize text-center d-flex justify-content-between">
+                            <strong>
+                                @*(@DateTime.Now.DayOfWeek)*@
+                            </strong>
+
+                        </div>
+
+                        <div class="card-body" style="background: white" border="5px" ;>
+                            <div class="car-info d-flex justify-content-between">
+                                <div class="car-text text-uppercase">
+                                    <center> <h2><b>Bus:</b>@item.BusNumber</h2> </center>
+                                    <h3><b>Destination:</b></h3><h4> @item.Destination</h4>
+                                    <h5><b>Time: </b>@item.TimeODay</h5>
+                                    @Html.ActionLink("Set Alert", "Index")
+                                    @Html.ActionLink("Delete", "Delete")
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="ro">
+            @foreach (var item in Model.Where(x => x.Destination == "From Campus To Res").Distinct())
+            {
+                <div class="col-10 mx-auto my-3 col-md-6 col-lg-4" n}>
+                    <div class="card car-card">
+
+                        <div class="card-footer text-capitalize text-center d-flex justify-content-between">
+                            <strong>
+                                @*(@DateTime.Now.DayOfWeek)*@
+                            </strong>
+
+                        </div>
+
+                        <div class="card-body" style="background: silver" ;>
+                            <div class="car-info d-flex justify-content-between">
+                                <div class="car-text text-uppercase">
+                                    <center><h2><b>Bus: </b>@item.BusNumber</h2></center>
+                                    <h3><b>Destination:</b></h3><h4> @item.Destination</h4>
+                                    <h5><b>Time: </b>@item.TimeODay</h5>
+                                    @Html.ActionLink("Set Alert", "Index")
+                                    @Html.ActionLink("Delete", "Delete")
+
+                                </div>
+                                @*<h5 class="car-value align-self-centre py-2 px3">
+                                        <strong>R</strong>
+                                        <span class="car-price">@item.TimeODay</span>
+                                    </h5>*@
+                            </div>
+
+                        </div>
+                        @*<div class="card-footer text-capitalize text-center d-flex justify-content-between">
+                                @Html.DisplayFor(x => item.CurrDayofWeek, new { @class = "btn btn-success btn-block" })
+
+                            </div>*@
+                    </div>
+                </div>
+            }
+        </div>
+
+    </div>
+    <p> <a href="javascript:window.print()">Click to Print This Page</a></p>
+</section>
+
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+﻿@model SmartRes_Official2019Data.ResAvailability
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ResAvailability</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Residence.ResName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Residence.ResName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NumAvailable)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NumAvailable)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CheckedIN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CheckedIN)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BookedSpaces)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BookedSpaces)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ResAvsilId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

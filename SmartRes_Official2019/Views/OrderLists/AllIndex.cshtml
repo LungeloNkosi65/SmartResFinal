@@ -1,0 +1,88 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.customer_order>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+      
+      
+        <th>
+            @Html.DisplayNameFor(model => model.invoice_no)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_month)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customer_Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.total_qty)
+        </th>
+       
+         
+        <th>
+            @Html.DisplayNameFor(model => model.total_balance)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.delivery_date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.remarks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.order_status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerNam*@e)
+        @*</th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cloths.cloth_Type)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.invoice_no)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.order_month)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.customer_Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.total_qty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.discount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.service_tax)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.total_paid)
+        </td>
+       
+            @Html.DisplayFor(modelItem => item.order_status)
+        </td>
+        <tid></tid>
+          
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

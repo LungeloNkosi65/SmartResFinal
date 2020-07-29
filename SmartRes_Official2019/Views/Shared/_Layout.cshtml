@@ -1,0 +1,913 @@
+﻿<!DOCTYPE html>
+@using Microsoft.AspNet.Identity
+@using SmartRes_Official2019Logic
+@{
+    BsLogic bl = new BsLogic();
+}
+<html>
+
+<!-- Mirrored from themenate.com/espire/html/dist/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 29 Sep 2019 21:47:16 GMT -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <title>Home Page</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/Content/assets/images/logo/favicon.png">
+    <!-- plugins css -->
+    <link rel="stylesheet" href="~/Content/assets/vendors/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendors/PACE/themes/blue/pace-theme-minimal.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendors/perfect-scrollbar/css/perfect-scrollbar.min.css" />
+    <!-- page plugins css -->
+    <link rel="stylesheet" href="~/Content/assets/vendors/bower-jvectormap/jquery-jvectormap-1.2.2.css" />
+    <link rel="stylesheet" href="~/Content/assets/vendors/nvd3/build/nv.d3.min.css" />
+    <!-- core css -->
+    <link href="~/Content/assets/css/ei-icon.css" rel="stylesheet">
+    <link href="~/Content/assets/css/themify-icons.css" rel="stylesheet">
+    <link href="~/Content/assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/Content/assets/css/animate.min.css" rel="stylesheet">
+    <link href="~/Content/assets/css/app.css" rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <div class="layout">
+            <!-- Side Nav START -->
+            <div class="side-nav">
+                <div class="side-nav-inner">
+                    <div class="side-nav-logo">
+                        <a href="@Url.Action("Index1", "Home" )">
+                       
+                            <div class="logo logo-dark" style="background-image: url('../../Content/assets/images/logo/logo.png')"></div>
+                            <div class="logo logo-white" style="background-image: url('../../Content/assets/images/logo/logo-white.png')"></div>
+                        </a>
+                        <div class="mobile-toggle side-nav-toggle">
+                            <a href="#">
+                                <i class="ti-arrow-circle-left"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <ul class="side-nav-menu scrollable">
+                        <li class="nav-item active">
+                            <a class="mrg-top-30" href="@Url.Action("Index1", "Home" )">
+                                <span class="icon-holder">
+                                    <i class="ti-home"></i>
+                                </span>
+                                <span class="title">Home</span>
+                            </a>
+                        </li>
+
+                        @if (User.IsInRole("SAN"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle" href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="ti-package"></i>
+                                    </span>
+                                    <span class="title">Residence/University</span>
+                                    <span class="arrow">
+                                        <i class="ti-angle-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    
+
+                                    <li class="nav-item dropdown">
+                                        <a href="javascript:void(0);">
+                                            <span>Residency</span>
+                                            <span class="arrow">
+                                                <i class="ti-angle-right"></i>
+                                            </span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="@Url.Action("Index", "Residences" )">Residence</a>
+                                                <a href="@Url.Action("Index", "RoomTypes" )">Room Types</a>
+                                                <a href="@Url.Action("RoomView", "Rooms" )">Rooms</a>
+                                                <a href="@Url.Action("Index", "ResAvailabilities" )">Availability</a>
+                                           
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                                    <li class="nav-item dropdown">
+                                        <a href="javascript:void(0);">
+                                            <span>University</span>
+                                            <span class="arrow">
+                                                <i class="ti-angle-right"></i>
+                                            </span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="@Url.Action("Index", "Universities" )">Universities</a>
+                                                
+
+                                            </li>
+                                        </ul>
+                                    </li>
+
+                      
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle" href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="ei-human-resources"></i>
+                                    </span>
+                                    <span class="title">Students</span>
+                                    <span class="arrow">
+                                        <i class="ti-angle-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                  
+                                 
+
+                                    <li class="nav-item dropdown">
+                                        <a href="javascript:void(0);">
+                                            <span>Student Admin</span>
+                                            <span class="arrow">
+                                                <i class="ti-angle-right"></i>
+                                            </span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="@Url.Action("AllStudents", "Students")">Student Details</a>
+
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Index", "Medical_Info" )">Student Medical Info</a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+
+
+                                    <li class="nav-item dropdown">
+                                        <a href="javascript:void(0);">
+                                            <span>Check-In Admin</span>
+                                            <span class="arrow">
+                                                <i class="ti-angle-right"></i>
+                                            </span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="@Url.Action("Index", "StudentCheckIns")">Checked In Students</a>
+                                            </li>
+
+
+                                            <li>
+                                                <a href="@Url.Action("Index", "PDFs")">Check List</a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle" href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="ti-announcement"></i>
+                                    </span>
+                                    <span class="title">Noticeboard</span>
+                                    <span class="arrow">
+                                        <i class="ti-angle-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="@Url.Action("Create", "Message" ) ">Post Notice</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("NoticeIndex", "Message" )">Noticeboard</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle" href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="ei-uniform"></i>
+                                    </span>
+                                    <span class="title">Laundry </span>
+                                    <span class="arrow">
+                                        <i class="ti-angle-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+
+
+                                    <li class="nav-item dropdown">
+                                        <a href="javascript:void(0);">
+                                            <span>Laundry Admin</span>
+                                            <span class="arrow">
+                                                <i class="ti-angle-right"></i>
+                                            </span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+
+                                            <li>
+                                                <a href="@Url.Action("Create", "Cloths") ">Clothing</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Create", "services" ) ">Service </a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("Create", "PriceLists" ) ">Pricing </a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle" href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="ti-shopping-cart"></i>
+                                    </span>
+                                    <span class="title">Meal Order</span>
+                                    <span class="arrow">
+                                        <i class="ti-angle-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="@Url.Action("Index", "Shopping" )">Meal Order</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "FoodOrders" )">Meal History</a>
+                                    </li>
+                                    <li class="nav-item dropdown">
+                                        <a href="javascript:void(0);">
+                                            <span>Meal Admin</span>
+                                            <span class="arrow">
+                                                <i class="ti-angle-right"></i>
+                                            </span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+                                            <li>
+                                                <a href="@Url.Action("Create", "Departments" )">Category</a>
+                                                <a href="@Url.Action("Index", "Items" )">Meal</a>
+                                                <a href="@Url.Action("ItemStats", "Items")">Statistics</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle" href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="ti-pie-chart"></i>
+                                    </span>
+                                    <span class="title">Maintenance</span>
+                                    <span class="arrow">
+                                        <i class="ti-angle-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                
+                                  
+
+
+                                    <li class="nav-item dropdown">
+                                        <a href="javascript:void(0);">
+                                            <span>Maintenance Admin</span>
+                                            <span class="arrow">
+                                                <i class="ti-angle-right"></i>
+                                            </span>
+                                        </a>
+                                        <ul class="dropdown-menu">
+
+                                           
+                                            <li>
+                                                <a href="@Url.Action("ViewAll", "MaintenanceRequests" )">All Requests</a>
+                                            </li>
+                                            <li>
+                                                <a href="@Url.Action("CalenderEvents", "Home")">Maintenance Calendar</a>
+                                            </li>
+
+
+                                            <li>
+                                                <a href="@Url.Action("Index", "MaintenanceSuppliers" )">Suppliers</a>
+                                            </li>
+
+                                            
+                                              <li>
+                                                <a href="@Url.Action("CostStats", "MaintenanceRequests" )">Statistics</a>
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </li>
+                 
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle" href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="ti-car"></i>
+                                    </span>
+                                    <span class="title">Bus Schedule</span>
+                                    <span class="arrow">
+                                        <i class="ti-angle-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="@Url.Action("ScheduleView", "BusShedules" )">Bus Schedule</a>
+                                        <a href="@Url.Action("Create", "WeekDays" )">Add Weekdays</a>
+                                       
+
+                                    </li>
+
+
+                                </ul>
+                            </li>
+
+                        }
+                        @if (User.IsInRole("Student"))
+                        {
+
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle" href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="ei-human-resources"></i>
+                                    </span>
+                                    <span class="title">Student Info</span>
+                                    <span class="arrow">
+                                        <i class="ti-angle-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="@Url.Action("Index", "Medical_Info" )">Student Medical Info</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle" href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="ei-uniform"></i>
+                                    </span>
+                                    <span class="title">Laundry </span>
+                                    <span class="arrow">
+                                        <i class="ti-angle-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+
+                                   
+                                    <li>
+                                        <a href="@Url.Action("Create", "customer_order" )">Request Laundry</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "customer_order") ">Laundry Invoice</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "OrderLists" )">My Bill</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle" href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="ti-shopping-cart"></i>
+                                    </span>
+                                    <span class="title">Meal Order</span>
+                                    <span class="arrow">
+                                        <i class="ti-angle-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="@Url.Action("Index", "Shopping" )">Meal Order</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Index", "ListsOrders" )">Order History</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle" href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="ti-pie-chart"></i>
+                                    </span>
+                                    <span class="title">Maintenance</span>
+                                    <span class="arrow">
+                                        <i class="ti-angle-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="@Url.Action("Create", "MaintenanceRequests" )">Add Requests</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("ViewAll", "MaintenanceRequests" )">All Requests</a>
+                                    </li>
+                                    
+                     
+
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle" href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="ti-world"></i>
+                                    </span>
+                                    <span class="title">My Uni</span>
+                                    <span class="arrow">
+                                        <i class="ti-angle-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="@Url.Action("MarksPortal", "Home" )">Marks Portal</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("MyUnisite", "Home" )">News</a>
+                                    </li>
+
+
+
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle" href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="ti-announcement"></i>
+                                    </span>
+                                    <span class="title">Noticeboard</span>
+                                    <span class="arrow">
+                                        <i class="ti-angle-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                 
+                                    <li>
+                                        <a href="@Url.Action("NoticeIndex", "Message" )">View Noticeboard</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle" href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="ti-car"></i>
+                                    </span>
+                                    <span class="title">Bus Schedule</span>
+                                    <span class="arrow">
+                                        <i class="ti-angle-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="@Url.Action("ScheduleView", "BusShedules" )">View Bus Shedules</a>
+
+                                    </li>
+
+
+                                </ul>
+                            </li>
+
+                        }
+
+                        @if (User.IsInRole("SystemAdmin"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle" href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="ti-package"></i>
+                                    </span>
+                                    <span class="title">Residence/University</span>
+                                    <span class="arrow">
+                                        <i class="ti-angle-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li>
+                                        <a href="@Url.Action("AddRole", "Roles" )">Roles Management</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Register", "Account" )">Add Employee</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("ListAllEmployees", "Home" )">All Employees</a>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+                        }
+
+                        @if (User.IsInRole("Employee"))
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="dropdown-toggle" href="javascript:void(0);">
+                                    <span class="icon-holder">
+                                        <i class="ti-package"></i>
+                                    </span>
+                                    <span class="title">Bookings</span>
+                                    <span class="arrow">
+                                        <i class="ti-angle-right"></i>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu">
+                                
+                                    <li>
+                                        <a href="@Url.Action("Index", "ResAvailabilities" )">Availability</a>
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("Create", "TemporaryBookings" )">Temporary Booking</a>
+                                    </li>
+                                
+                                </ul>
+                            </li>
+
+                        }
+
+
+                    </ul>
+                </div>
+            </div>
+            <!-- Side Nav END -->
+            <!-- Page Container START -->
+            <div class="page-container">
+                <!-- Header START -->
+                <div class="header navbar">
+                    <div class="header-container">
+                        <ul class="nav-left">
+                            <li>
+                                <a class="side-nav-toggle" href="javascript:void(0);">
+                                    <i class="ti-view-grid"></i>
+                                </a>
+                            </li>
+                            <li class="search-box">
+                                <a class="search-toggle no-pdd-right" href="javascript:void(0);">
+                                    <i class="search-icon ti-search pdd-right-10"></i>
+                                    <i class="search-icon-close ti-close pdd-right-10"></i>
+                                </a>
+                            </li>
+                            <li class="search-input">
+                                <input class="form-control" type="text" placeholder="Search...">
+                                <div class="advanced-search">
+                                    <div class="search-wrapper">
+                                        <div class="pdd-vertical-10">
+                                            <span class="display-block mrg-vertical-5 pdd-horizon-20 text-gray">
+                                                <i class="ti-user pdd-right-5"></i>
+                                                <span>People</span>
+                                            </span>
+                                            <ul class="list-unstyled list-info">
+                                                <li>
+                                                    <a href="#">
+                                                        <img class="thumb-img" src="~/Content/assets/images/avatars/thumb-1.jpg" alt="">
+                                                        <div class="info">
+                                                            <span class="title">Jordan Hurst</span>
+                                                            <span class="sub-title">
+                                                                <i class="ti-location-pin"></i>
+                                                                <span>44 Shirley Ave. West Chicago</span>
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <img class="thumb-img" src="~/Content/assets/images/avatars/thumb-5.jpg" alt="">
+                                                        <div class="info">
+                                                            <span class="title">Jennifer Watkins</span>
+                                                            <span class="sub-title">
+                                                                <i class="ti-location-pin"></i>
+                                                                <span>514 S. Magnolia St. Orlando</span>
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <img class="thumb-img" src="~/Content/assets/images/avatars/thumb-4.jpg" alt="">
+                                                        <div class="info">
+                                                            <span class="title">Michael Birch</span>
+                                                            <span class="sub-title">
+                                                                <i class="ti-location-pin"></i>
+                                                                <span>70 Bowman St. South Windsor</span>
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                        <div class="mrg-horizon-20 border top"></div>
+                                        <div class="pdd-vertical-10">
+                                            <span class="display-block mrg-vertical-5 pdd-horizon-20 text-gray">
+                                                <i class="ti-rss pdd-right-5"></i>
+                                                <span>Post</span>
+                                            </span>
+                                            <ul class="list-unstyled list-info">
+                                                <li>
+                                                    <a href="#">
+                                                        <img class="thumb-img" src="~/Content/assets/images/img-1.jpg" alt="">
+                                                        <div class="info">
+                                                            <span class="title">Artoo expresses his relief</span>
+                                                            <span class="sub-title">
+                                                                <span>Oh, thank goodness we're coming out...</span>
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <img class="thumb-img" src="~/Content/assets/images/img-2.jpg" alt="">
+                                                        <div class="info">
+                                                            <span class="title">Ready for some power?</span>
+                                                            <span class="sub-title">
+                                                                <span>Lord Vader. You may take Caption So...</span>
+                                                            </span>
+                                                        </div>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="search-footer">
+                                        <span>You are Searching for '<b class="text-dark"><span class="serach-text-bind"></span></b>'</span>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="nav-right">
+                            <li class="user-profile dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    @*<img class="profile-img img-fluid" src="~/Content/assets/images/user.jpg" alt="">*@
+                                    <div class="user-info">
+                                        <span class="name pdd-right-5">@User.Identity.GetUserName()</span>
+                                        <i class="ti-angle-down font-size-10"></i>
+                                    </div>
+                                </a>
+                                <ul class="dropdown-menu">
+
+                                    <li>
+                                        @if (User.IsInRole("SAN"))
+                                        {
+
+                                            <a href="@Url.Action("Index", "SAN_Employee" )">
+                                                <i class="ti-user pdd-right-10"></i>
+                                                <span>Profile</span>
+                                            </a>
+                                        }
+
+                                        @if (User.IsInRole("Student"))
+                                        {
+
+                                            <a href="@Url.Action("Index", "Students" )">
+                                                <i class="ti-user pdd-right-10"></i>
+                                                <span>Profile</span>
+                                            </a>
+                                        }
+                                        @if (User.IsInRole("SystemAdmin"))
+                                        {
+
+                                            <a href="@Url.Action("Index", "SAN_Employee" )">
+                                                <i class="ti-user pdd-right-10"></i>
+                                                <span>Profile</span>
+                                            </a>
+                                        }
+                                        @if (User.IsInRole("Employee"))
+                                        {
+
+                                            <a href="@Url.Action("Index", "UniversityEmployees" )">
+                                                <i class="ti-user pdd-right-10"></i>
+                                                <span>Profile</span>
+                                            </a>
+                                        }
+
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <i class="ti-email pdd-right-10"></i>
+                                            <span>Inbox</span>
+                                        </a>
+                                    </li>
+                                    @if (User.Identity.IsAuthenticated == false)
+                                    {
+                                        <li>
+
+                                            <a href="" target="_blank" class="btn btn-clean btn-sm btn-bold">
+                                                <i class="ti-power-off pdd-right-10"></i>
+                                                {
+                                                @Html.AntiForgeryToken()
+                                                @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { role = "form" }))
+
+
+
+
+
+                                                {
+                                           <input type="submit" value="LoIn" class="btn btn-primary" />
+                                                }
+                                                @*<span>Logout</span>*@
+                                            </a>
+                                        </li>
+                                    }
+                                        <li role="separator" class="divider"></li>
+                                        @if (User.Identity.IsAuthenticated == true)
+                                        {
+                                            <li>
+
+                                                <a href="" target="_blank" class="btn btn-clean btn-sm btn-bold">
+                                                    <i class="ti-power-off pdd-right-10"></i>
+                                                    @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { role = "form" }))
+                                                    {
+                                                        @Html.AntiForgeryToken()
+                                                        <input type="submit" value="Logout" class="btn btn-primary" />
+                                                    }
+                                                    @*<span>Logout</span>*@
+                                                </a>
+                                            </li>
+                                        }
+
+
+                                    </ul>
+                            </li>
+
+
+
+                            @*<li class="dropbtn dropdown">
+                                <a href="#">Notifications <i class="w3-badge w3-red" style="font-size:10px">@bl.AllNotifications().Where(x => x.seen == false).ToList().Count</i></a>
+                                <div class="dropdown-content">
+                                    @{
+                                        foreach (var e in bl.AllNotifications())
+                                        {
+                                            if (!e.seen)
+                                            {
+                                                <a href="~/Bookings/DetailsAdmin/@e.reference" style="background-color:#E8eaed"> @e.NotType <span style="font-size:9px"><br />@e.NotDate.ToShortDateString(), @e.NotDate.ToLongTimeString() </span></a>
+                                            }
+                                            else
+                                            {
+                                                <a href="~/Bookings/DetailsAdmin/@e.reference"> @e.NotType <span style="font-size:9px"><br />@e.NotDate.ToShortDateString(), @e.NotDate.ToLongTimeString() </span></a>
+
+                                            }
+                                        }
+                                    }
+                                </div>
+                            </li>*@
+
+
+
+
+
+
+
+
+                            <li class="notifications dropdown">
+                                <span class="counter">@bl.AllNotifications(User.Identity.GetUserName()).Where(x => x.seen == false).ToList().Count</span>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="ti-bell"></i>
+                                </a>
+                                <ul class="dropdown-menu ">
+                                    <li class="notice-header">
+                                        <i class="ti-bell pdd-right-10"></i>
+                                        <span>Notifications</span>
+                                    </li>
+                                    <li>
+                                        <ul class="list-info overflow-y-auto relative scrollable">
+                                            <li>
+                                                <a href="#">
+                                                    @*<img class="thumb-img" src="~/Content/assets/images/avatars/thumb-5.jpg" alt="">
+                                                    <div class="info">
+
+                                                        <span class="title">
+                                                            <span class="font-size-14 text-semibold">Jennifer Watkins</span>
+                                                            <span class="text-gray">commented on your <span class="text-dark">post</span></span>
+                                                        </span>
+                                                        <span class="sub-title">5 mins ago</span>
+                                                    </div>*@
+                                                    <div class="info">
+                                                        @{foreach (var e in bl.AllNotifications(User.Identity.GetUserName()).Where(x => x.seen == false))
+                                                            {
+                                                                if (User.Identity.IsAuthenticated == true)
+                                                                {
+                                                                    if (!e.seen)
+                                                                    {
+                                                                        <a href="~/Message/MessageDetails/@e.reference" style="background-color:#E8eaed"> @e.NotType <span style="font-size:9px"><br />@e.NotDate.ToShortDateString(), @e.NotDate.ToLongTimeString() </span></a>
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <a href="~/Message/MessageDetails/@e.reference"> @e.NotType <span style="font-size:9px"><br />@e.NotDate.ToShortDateString(), @e.NotDate.ToLongTimeString() </span></a>
+
+                                                                    }
+                                                                }
+
+                                                            }
+                                                        }
+                                                        <a href="@Url.Action("AllNotices", "Message")">
+                                                            <span class="label label-danger"><i class="icon_book_alt"></i></span>
+                                                            View more
+
+                                                        </a>
+                                                    </div>
+
+                                                </a>
+
+                                           
+                                            </li>
+
+                                        </ul>
+                                    </li>
+
+                                </ul>
+                            </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            <li>
+                              
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Header END -->
+                <!-- Side Panel START -->
+                <!-- Side Panel END -->
+                <!-- theme configurator START -->
+                <!-- theme configurator END -->
+                <!-- Theme Toggle Button START -->
+          
+                <!-- Theme Toggle Button END -->
+                <!-- Content Wrapper START -->
+                <div class="main-content">
+                    <div class="container-fluid">
+                        @RenderBody()
+                    </div>
+                </div>
+                <!-- Content Wrapper END -->
+                <!-- Footer START -->
+                <footer class="content-footer">
+                    <div class="footer">
+                        <div class="copyright">
+                            <span>Copyright © 2019 <b class="text-dark">The Devengers</b>. All rights reserved.</span>
+                            <span class="go-right">
+                                <a href="#" class="text-gray mrg-right-15">Term &amp; Conditions</a>
+                                <a href="#" class="text-gray">Privacy &amp; Policy</a>
+                            </span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- Footer END -->
+            </div>
+            <!-- Page Container END hhhh -->
+        </div>
+    </div>
+    <script src="~/Content/assets/js/vendor.js"></script>
+
+    <!-- page plugins js -->
+    <script src="~/Content/assets/vendors/bower-jvectormap/jquery-jvectormap-1.2.2.min.js"></script>
+    <script src="~/Content/assets/js/maps/jquery-jvectormap-us-aea.js"></script>
+    <script src="~/Content/assets/vendors/d3/d3.min.js"></script>
+    <script src="~/Content/assets/vendors/nvd3/build/nv.d3.min.js"></script>
+    <script src="~/Content/assets/vendors/jquery.sparkline/index.js"></script>
+    <script src="~/Content/assets/vendors/chart.js/dist/Chart.min.js"></script>
+    <script src="~/Content/assets/js/app.min.js"></script>
+    <!-- page js -->
+    <script src="~/Content/assets/js/dashboard/dashboard.js"></script>
+</body>
+
+@if (User.Identity.IsAuthenticated == true)
+{
+    <!--Start of Tawk.to Script-->
+    <script type="text/javascript">
+        var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+        (function () {
+            var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+            s1.async = true;
+            s1.src = 'https://embed.tawk.to/5ca33d5f1de11b6e3b066be2/default';
+            s1.charset = 'UTF-8';
+            s1.setAttribute('crossorigin', '*');
+            s0.parentNode.insertBefore(s1, s0);
+        })();
+    </script>
+
+    <!--End of Tawk.to Script-->
+}
+
+</html>
+@RenderSection("scripts", required: false)

@@ -1,0 +1,57 @@
+﻿@model SmartRes_Official2019Data.Residence
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Residence</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.University.UniversityName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.University.UniversityName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ResAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ResAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Capacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Capacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender_Allocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender_Allocation)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

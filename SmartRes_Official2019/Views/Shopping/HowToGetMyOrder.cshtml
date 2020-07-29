@@ -1,0 +1,115 @@
+﻿@model SmartRes_Official2019Data.FoodDeliveryChoice
+
+@{
+    ViewBag.Title = "How would you like to recieve your Order";
+    Layout = "~/Views/Shared/_ShopLayout -Cart.cshtml";
+
+}
+
+<script type="text/javascript">
+    function hide() {
+        //alert('hh')
+        document.getElementById("Food").style.display = 'none';
+    }
+
+    function show() {
+        document.getElementById("Food").style.display = 'block';
+    }
+</script>
+
+<div class="col-xs-12">
+    <div class="box">
+        <div class="box-header">
+        </div>
+        <h2>How would you like to recieve your order</h2>
+        <div class="box-body">
+
+            <section id="loginForm" style="width:900px">
+                @using (Html.BeginForm())
+                {
+
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+                        @*<h4>Medical_Info</h4>*@
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Decidionchoice, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-7" id="A">
+                                <label>
+                                    <input type="radio" name="Decidionchoice" onclick="hide()" value="No" /><span>Collect</span>
+                                    <input type="radio" name="Decidionchoice" onclick="show()" value="Yes" /><span>Deliver</span>
+
+
+                                </label>
+
+                            </div>
+                        </div>
+
+
+                        <div id="Food">
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.ResName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10" id="A">
+
+                                    @Html.EditorFor(model => model.ResName, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.ResName, "", new { @class = "text-danger" })
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.RoomNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-10">
+                                    @Html.EditorFor(model => model.RoomNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.RoomNumber, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+
+                        </div>
+
+
+
+
+
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Continue" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+
+                }
+                @*</section>*@
+        </div>
+
+
+    </div>
+</div>
+
+
+
+
+<script>
+    $('input[tyoe="radio"]').change(function () {
+        var value = $(this).val();
+        $('#' + $(this).val()).children('input[type="text"]').removeAttr('disabled');
+    }
+         $('input[type="radio"]').each(function () {
+            if (this.value != value) {
+                $('#' + this.value).children('input[type="text"]').attr('disabled', 'disabled');
+            }
+        })
+
+        });
+
+
+</script>
+
+
+

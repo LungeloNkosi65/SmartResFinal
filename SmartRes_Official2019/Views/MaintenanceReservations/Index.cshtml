@@ -1,0 +1,63 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.MaintenanceReservation>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">Laundry Price List</h4>
+
+                <div class="table-overflow">
+                    <table class="table table-bordered table-hover table-sm">
+                        <tr>
+                            //14
+                            <th>
+                                @Html.DisplayNameFor(model => model.Rooms)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ReservationDescription)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ReservationDate)
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.Rooms)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ReservationDescription)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ReservationDate)
+                                </td>
+                                <td>
+                                    @*@Html.ActionLink("Edit", "Edit", new { id=item.ReservationID }) |
+                                        @Html.ActionLink("Details", "Details", new { id=item.ReservationID }) |
+                                        @Html.ActionLink("Delete", "Delete", new { id=item.ReservationID })*@
+                                    <a href="~/MaintenanceReservation/Index" class="btn btn-brand btn-elevate btn-icon-sm">
+                                        <i class="la la-plus"></i>
+                                        Add to Calendar
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+                </div>
+</div>
+</div>
+</div>
+

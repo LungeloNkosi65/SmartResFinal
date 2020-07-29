@@ -1,0 +1,99 @@
+﻿@model SmartRes_Official2019Data.MaintenanceRequest
+
+
+@{
+    ViewBag.Title = "Temporary Booking";
+    var msg = TempData["message"] ?? string.Empty;
+}
+
+<script>
+    var message = '@msg';
+    if (message)
+        alert(message);
+</script>
+
+
+<div class="col-md-10">
+    <div class="card">
+        <div class="card-heading border bottom">
+            <h4 class="card-title">Lodge Maintenance Request</h4>
+        </div>
+        <div class="card-block">
+            <div class="mrg-top-40">
+
+                @using (Html.BeginForm("Create", "MaintenanceRequests", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+            {
+                    @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+
+                        <hr />
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                        @if (User.IsInRole("SystemAdmin") || User.IsInRole("Employee"))
+                        {
+                            <div class="form-group">
+                                @Html.LabelFor(model => model.RoomNumber, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-5">
+                                    @Html.EditorFor(model => model.RoomNumber, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.RoomNumber, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        }
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.MainIssue, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-5">
+                                @Html.EditorFor(model => model.MainIssue, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.MainIssue, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.RoomAval, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-5">
+                                @Html.EditorFor(model => model.RoomAval, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.RoomAval, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TimeAvailable, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-5">
+                                @Html.EditorFor(model => model.TimeAvailable, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.TimeAvailable, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.Image, htmlAttributes: new { @class = "control-label col-md-2" })
+                            <div class="col-md-5">
+                                <div>
+                                    <input type="file" id="filelist" name="filelist" />
+                                </div>
+                                @Html.ValidationMessageFor(model => model.Image, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+                                @Html.LabelFor(model => model.DateLoged, htmlAttributes: new { @class = "control-label col-md-2" })
+                                <div class="col-md-5">
+                                    @Html.EditorFor(model => model.DateLoged, new { htmlAttributes = new { @class = "form-control" } })
+                                    @Html.ValidationMessageFor(model => model.DateLoged, "", new { @class = "text-danger" })
+                                </div>
+                            </div>*@
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Lodge" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>

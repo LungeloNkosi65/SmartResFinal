@@ -1,0 +1,98 @@
+﻿@model SmartRes_Official2019Data.customer
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>customer</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.join_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.join_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NameIdentifier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NameIdentifier)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.last_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.last_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserPhoto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserPhoto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.mobile)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.mobile)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email_id)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email_id)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.birth_date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.birth_date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.status)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.customer_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

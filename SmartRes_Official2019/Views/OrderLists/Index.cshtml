@@ -1,0 +1,136 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.OrderList>
+
+
+<div class="kt-portlet">
+
+    <div class="kt-portlet__head">
+
+        @if (User.IsInRole("Student"))
+        {
+            <div class="kt-portlet__head-label">
+                <h3 class="kt-portlet__head-title">
+                    My Laundry
+                </h3>
+            </div>
+
+        }
+        else
+        {
+            <div class="kt-portlet__head-label">
+                <h3 class="kt-portlet__head-title">
+                    All Luandries
+                </h3>
+            </div>
+
+        }
+    </div>
+    @using (Html.BeginForm())
+    {
+
+        <p style="text-align:right;">
+            Find : @Html.TextBox("SearchString","", new { placeholder = "Search by Status,Inv no" })
+            <input type="submit" value="Search" />
+        </p>
+
+    }
+    <table class="table table-hover table-striped" id="my_list">
+        <thead>
+            <tr class="table-header-row">
+                <th>
+                    @Html.DisplayNameFor(model => model.InvoiceNo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderDate)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.qty)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.amt)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.status)
+                </th>
+                @if (User.IsInRole("SAN"))
+                {
+                    <th>
+                        @Html.DisplayNameFor(model => model.customerID)
+                    </th>
+
+                }
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.InvoiceNo)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OrderDate)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.qty)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.amt)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.status)
+                    </td>
+                      @if (User.IsInRole("SAN"))
+                      {
+                        <td>
+                            @Html.DisplayFor(modelItem => item.customerID)
+                        </td>
+
+                      }
+                    <td>
+                   @if (User.IsInRole("Student") && item.status=="Done")
+                   {
+                    <a href="@Url.Action("Recieved", "OrderLists", new { id = item.InvoiceNo })" rel="tooltip" title="Recieved" class="btn btn-danger btn-simple btn-xs"><i class="fa fa-ticket">Done</i></a>
+
+                   }
+                        <a href="@Url.Action("Details", "OrderLists", new { id = item.InvoiceNo })" rel="tooltip" title="Details" class="btn btn-danger btn-simple btn-xs"><i class="fa fa-edit"></i></a>
+                        @if (User.IsInRole("SAN"))
+                        {
+                            <a href="@Url.Action("Done", "OrderLists", new { id = item.InvoiceNo })" rel="tooltip" title="Delete" class="btn btn-danger btn-simple btn-xs"><i class="fa fa-save">Done</i></a>
+
+                            <a href="@Url.Action("updateStatus", "OrderLists", new { id = item.InvoiceNo })" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs"><i class="fa fa-edit">Approve</i></a>
+                        }
+                      
+
+
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+
+
+    </table>
+</div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+                    $('#my_list').dataTable(
+                        {
+                            dom: 'Bfrtip',
+                            lengthMenu: [
+                                [10, 25, 50, -1],
+                                ['10 rows', '25 rows', '50 rows', 'Show all']
+                            ],
+                            buttons: [
+                                'pageLength', 'pdf', 'print'
+                            ]
+                        }
+                    );
+                    $('#my_list')
+                        .removeClass('display')
+        .addClass('table table-striped table-hover');
+</script>

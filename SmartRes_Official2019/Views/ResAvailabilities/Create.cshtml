@@ -1,0 +1,75 @@
+﻿@model SmartRes_Official2019Data.ResAvailability
+<div class="kt-portlet">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title">
+                Residence Availability
+            </h3>
+        </div>
+    </div>
+    <section id="loginForm" style="width:600px">
+        @using (Html.BeginForm())
+            {
+            @Html.AntiForgeryToken()
+
+            <div class="form-horizontal">
+                @*<h4>ResAvailability</h4>*@
+                <hr />
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.ResId, "Residence", htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-5">
+                        @Html.DropDownList("ResId", null, htmlAttributes: new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ResId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                @*<div class="form-group">
+                        @Html.LabelFor(model => model.NumAvailable, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.NumAvailable, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.NumAvailable, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.CheckedIN, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.CheckedIN, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.CheckedIN, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+
+                @*<div class="form-group">
+                        @Html.LabelFor(model => model.BookedSpaces, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.BookedSpaces, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.BookedSpaces, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+
+                @*<div class="form-group">
+                        @Html.LabelFor(model => model.Quantity, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-5">
+                            @Html.EditorFor(model => model.Quantity, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger" })
+                        </div>
+                    </div>*@
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        @*<input type="submit" value="Add" class="btn btn-default" />*@
+                        <button type="submit" class="btn btn-success">
+                            <i class="icon-circle-arrow-right icon-large"></i> Next
+                        </button>
+                    </div>
+                </div>
+            </div>
+        }
+    </section>
+</div>
+
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>

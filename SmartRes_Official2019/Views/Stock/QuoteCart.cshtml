@@ -1,0 +1,89 @@
+﻿@model List<SmartRes_Official2019.Models.StockCart_Item>
+@{
+    ViewBag.Title = "Quote Cart";
+}
+
+<h2 class="title text-center">Cart Details</h2>
+
+
+
+@using (Html.BeginForm())
+{
+    <table class="table">
+        <tr>
+            <th hidden="hidden"></th>
+            <th>Picture</th>
+            <th>
+                Name
+            </th>
+            <th>
+                Quantity
+            </th>
+            @*<th>
+                Price
+            </th>*@
+            <th></th>
+        </tr>
+
+        @for (int item =0; item< Model.Count(); item++) {
+            <tr>
+                <td hidden="hidden">
+                    @Html.EditorFor(modelItem => Model[item].cart_item_id)
+                </td>
+                <td>
+                    @if (Model[item].Item.Picture != null)
+                    {
+                        var base64 = Convert.ToBase64String(Model[item].Item.Picture);
+                        var imgSrc = string.Format("data:image/gif;base64,{0}", base64);
+                        <img src="@imgSrc" width="60" height="70" />
+                    }
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Model[item].Item.Name)
+                </td>
+                <td>
+                    @Html.EditorFor(modelItem => Model[item].quantity, new { htmlAttributes = new { @class = "form-control", @style = "width:100px" } })
+                </td>
+                <td>
+                    <a href="@Url.Action("remove_from_cart", "Stock", new {id = Model[item].cart_item_id})" class="btn btn-default"><i class="fa fa-times"></i> Remove</a>
+                </td>
+            </tr>
+        }
+        <tr>
+            <td hidden="hidden"></td>
+            <td>
+
+            </td>
+            <td></td>
+            <td>
+                Total : @ViewBag.TotalQTY  @if (Model.Count == 0)
+                {
+                    <input type="submit" value="Update" class="btn btn-default disabled" />
+                }
+                else
+                {
+                    <input type="submit" value="Update" class="btn btn-default" />
+                }
+            <td>
+
+            </td>
+        </tr>
+        <tr>
+            <td hidden="hidden"></td>
+            <td>
+
+            </td>
+            <td></td>
+            <td>
+                <a href="@Url.Action("Fall_catalog", "Stock")" class="btn btn-default"><i class="fa fa-arrow-left"></i> Back to Fall Catalog</a>
+            </td>
+            <th>
+                <a href="@Url.Action("Quote", "Stock")" class="btn btn-success"><i class="fa fa-lock"></i> Send Quotation Request</a>
+            </th>
+            <td>
+
+            </td>
+        </tr>
+    </table>
+
+}

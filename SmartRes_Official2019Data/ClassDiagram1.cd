@@ -1,0 +1,641 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="SmartRes_Official2019Data.Admin" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAg=</HashCode>
+      <FileName>Admin.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Transaction" Collapsed="true">
+    <Position X="3" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAAAAABgIgAAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AffiliateEarning.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Deposit" Collapsed="true">
+    <Position X="0.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AffiliateEarning.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Withdraw" Collapsed="true">
+    <Position X="3" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AffiliateEarning.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Transfer" Collapsed="true">
+    <Position X="5.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AffiliateEarning.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.WithdrawLevel" Collapsed="true">
+    <Position X="9.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAgAAAAAAACAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AffiliateEarning.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Affiliate" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAACBAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Affiliation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Affiliate_Joiner" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACBAgAAAAABAAAAAAAAAAAgAAAAAQAAAAAA=</HashCode>
+      <FileName>Affiliation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.ApplicationRole" Collapsed="true">
+    <Position X="14.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ApplicationRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.basicCount" Collapsed="true">
+    <Position X="18.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAgAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>basicCount.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.BusShedule" Collapsed="true">
+    <Position X="20" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACIAAQAABAAAgAAAAAAACAAAAEACAAAAAAAAA=</HashCode>
+      <FileName>BusShedule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Cart" Collapsed="true">
+    <Position X="21.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgCA=</HashCode>
+      <FileName>Cart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Cart_Item" Collapsed="true">
+    <Position X="23.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAEAAAAAAAAAAAAAQAAAEAAAAAACAAAgACAAAACA=</HashCode>
+      <FileName>Cart_Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Department" Collapsed="true">
+    <Position X="21.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAACAAAAAAAEAAAAAACAAAAAAA=</HashCode>
+      <FileName>Category.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Category" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAACAAAAAAACAQAEAAAAAAAAAAAAABAAAA=</HashCode>
+      <FileName>Category.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Check_In" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQgAQAAAIAABAAAAAQAAAQAAAAAAAAAAiAAA=</HashCode>
+      <FileName>Check-In.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Class1" Collapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Class1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Cloths" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAJAAAAAAAAAgAAAAAAAACAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Cloths.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Conversation" Collapsed="true">
+    <Position X="14.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAgAAAAAACAAAAAAAAACAAAAAAAAAAAAAAAiA=</HashCode>
+      <FileName>Conversation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Customer" Collapsed="true">
+    <Position X="16.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAEAAACBAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAg=</HashCode>
+      <FileName>Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.customer_order" Collapsed="true">
+    <Position X="18.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgGAAAAAQkgIgEggAAIcARAAAQAAAIAAAAIIAAAQ=</HashCode>
+      <FileName>customer_order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.customerSt" Collapsed="true">
+    <Position X="20" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAAAQACAAAAAAAgAAAAAIAAAAAAAAAggEAQAA=</HashCode>
+      <FileName>customerSt.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Delivery" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEgASAAAAAAgAAAAAgAAAAEBAAIAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>Delivery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Order_Delivery" Collapsed="true">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAIAAAgAAAAAAAAAAAJAAAQAAAAA=</HashCode>
+      <FileName>Delivery.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.DepartmentModel" Collapsed="true">
+    <Position X="23.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAgAAAAAAAACAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>DepartmentModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.employee" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAACAAAACAAAAAAEQABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.expense_type" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgEAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>expense_type.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.expenses" Collapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAgAgCEAAAACBAAAAAAAIAAAAAAAAAAAAAAAAAACAAA=</HashCode>
+      <FileName>expenses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.FoodOrder" Collapsed="true">
+    <Position X="18.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAFgAAAAAASAAAAAAAQAAAAAAAAQACAAAgACAAAECA=</HashCode>
+      <FileName>FoodOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.FoodDeliveryChoice" Collapsed="true">
+    <Position X="16.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAABAAIAAAAIAAAAAAAAAACAAAAAI=</HashCode>
+      <FileName>FoodOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.ApplicationUser" Collapsed="true">
+    <Position X="16.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IdentityModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.ApplicationDbContext" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>hCOyBEGOCQRgbKIgICgYOQASAAQEGFBCAAAQJQGMAAg=</HashCode>
+      <FileName>IdentityModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.InfoDetails" Collapsed="true">
+    <Position X="23.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>wAAABAAAAAAAAAAgAAAAAAQAAIAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>InfoDetails.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Item" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABgAAJAQAgAQAAAAAAAAQAEAAAAAAAAAAAAABECAA=</HashCode>
+      <FileName>Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Logic" Collapsed="true">
+    <Position X="9.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAIAAAAQAhAQBgAQQAAAAIIAgAAAARAgAgGIAIA=</HashCode>
+      <FileName>Logic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Maintenance_Check" Collapsed="true">
+    <Position X="13" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgUAQAQAAAAABAAAAAAAAAAAAgAAAACAAAAAAI=</HashCode>
+      <FileName>Maintenance_Check.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.MaintenanceRequest" Collapsed="true">
+    <Position X="14.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAgAAAAABCAMAAACAAAABgAAwAAAIQAQIA=</HashCode>
+      <FileName>MaintenanceRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.MaintenanceReservation" Collapsed="true">
+    <Position X="16.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAEAgAAAAAAAAAAAAAACAAAAAAgAAAAAAAAAAAA=</HashCode>
+      <FileName>MaintenanceReservation.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.MaintenanceSuppliers" Collapsed="true">
+    <Position X="18.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAIAAAAAAAAAAAQAAAAAEACAABAAAAAA=</HashCode>
+      <FileName>MaintenanceSuppliers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Medical_Info" Collapsed="true">
+    <Position X="20" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAAAIQAAAAAAAABAACAAQCICAAAEIAAAAAgA=</HashCode>
+      <FileName>Medical_Info.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Message" Collapsed="true">
+    <Position X="21.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAAABAAAAAAAIAAAAAgAAAIAACAAAAAAAAgAAA=</HashCode>
+      <FileName>NoticeBoard\Message.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Reply" Collapsed="true">
+    <Position X="7.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AwACAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAIAAAAAAAA=</HashCode>
+      <FileName>NoticeBoard\Reply.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Notification" Collapsed="true">
+    <Position X="7.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAABIAAgQAAAAAAAAAAAAAAAAAACAEAQAAAACA=</HashCode>
+      <FileName>Notification.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Order" Collapsed="true">
+    <Position X="9.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUAAAAACCBAAAAgAAgAAAAAAAAACAAAAAAAIAAAgAA=</HashCode>
+      <FileName>Order.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Order_Item" Collapsed="true">
+    <Position X="11.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAUBAAAACAAAACAAAEAAAAAEAAAAAAKAAAgAAAAAEkA=</HashCode>
+      <FileName>Order_Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Order_Tracking" Collapsed="true">
+    <Position X="13" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AA0AAAAAAAAAgAAAAAABAAAAAAAAAAAAAAAAAQAAAAA=</HashCode>
+      <FileName>Order_Tracking.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.OrderDetailModel" Collapsed="true">
+    <Position X="14.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAKAABEAAAAAAAAAgAAACAAAIAAAAAAAAAAAAAAAE=</HashCode>
+      <FileName>OrderDetailModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.OrderList" Collapsed="true">
+    <Position X="16.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAQAAAQCAAAQABAAAAAAAAQAAAAAAIACAAAAAAAAEAA=</HashCode>
+      <FileName>OrderList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Payment" Collapsed="true">
+    <Position X="18.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEBAAAAACACAAAAAAgAAAQAAAAAAQABAAAAAAAAAAA=</HashCode>
+      <FileName>Payment.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.PDF" Collapsed="true">
+    <Position X="20" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAACAAAAAAAAAAAAACAAAAAAAABAAAAAAAAAA=</HashCode>
+      <FileName>PDF.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.PriceList" Collapsed="true">
+    <Position X="21.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABACAAAAAAkgAAAAAAAAAAAAAAAAAAAAAAAIAAAAA=</HashCode>
+      <FileName>PriceList.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.ResAvailability" Collapsed="true">
+    <Position X="9.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAADAIBAAAAAAAAAAQAAgAAAAgCAgAAA=</HashCode>
+      <FileName>ResAvailability.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Residence" Collapsed="true">
+    <Position X="13" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAQAAAAAAAAAIABACAIAAQAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Residence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.RolesView" Collapsed="true">
+    <Position X="14.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RolesView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Room" Collapsed="true">
+    <Position X="16.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACACAGAAAQAAgAAAAAIAAAAAAAQAACAAAAACAgAAA=</HashCode>
+      <FileName>Room.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.RoomStudent" Collapsed="true">
+    <Position X="18.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgAAAAAGQAAQQAAJABAACAABQABAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RoomStudent.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.RoomType" Collapsed="true">
+    <Position X="20" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAGAAAAAAAAAAI=</HashCode>
+      <FileName>RoomType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.SAN_Employee" Collapsed="true">
+    <Position X="21.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAKAAAAAQAQABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SAN_Employee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.services" Collapsed="true">
+    <Position X="7.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAgAAAAAAgAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>services.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Address" Collapsed="true">
+    <Position X="3.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAARAAAAAAACAIAAAAAAAAAAIAAAABAAAABAAAAAA=</HashCode>
+      <FileName>Shipping_Address.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Shipping_Address" Collapsed="true">
+    <Position X="3.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAAAAAAgAAAgIAAAAAAAAIQAAAAAAAAAAIAA=</HashCode>
+      <FileName>Shipping_Address.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.StockCart" Collapsed="true">
+    <Position X="9.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEgCA=</HashCode>
+      <FileName>StockCart.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.StockCart_Item" Collapsed="true">
+    <Position X="11.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAAAAAAAAQAAAQAAAEAAAAAACAAAgAAAAAACA=</HashCode>
+      <FileName>StockCart_Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.StockOrder" Collapsed="true">
+    <Position X="13" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAACABAAAAAAAgAAAAAAAAAAAAAAAAAIAAAgAA=</HashCode>
+      <FileName>StockOrder.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.StockOrder_Item" Collapsed="true">
+    <Position X="14.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAACAAAACAAAEAgAAAEAAAAAAKAAAgAAAAAEkA=</HashCode>
+      <FileName>StockOrder_Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Student" Collapsed="true">
+    <Position X="16.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAIgACAAAAAQAQARIAAAAAAAAAAAgBAAAA=</HashCode>
+      <FileName>Student.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Student_Otp" Collapsed="true">
+    <Position X="18.25" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAAAAAQAAAAAAAAAAAAIAACAAAAAAAAAAACAAA=</HashCode>
+      <FileName>Student_Otp.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.StudentCheckIn" Collapsed="true">
+    <Position X="20" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAGQgAYCAAIABAACAAAQIAAwAAAAAAAAAAiAAA=</HashCode>
+      <FileName>StudentCheckIn.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Students_Dummy" Collapsed="true">
+    <Position X="23.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgACAAAAAQAQABAAAAACAQAAAAABAAAA=</HashCode>
+      <FileName>Students_Dummy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Supplier" Collapsed="true">
+    <Position X="7.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAQACAAAAIAABAAAAQQAAAAAAAAEAAAIAAAAAA=</HashCode>
+      <FileName>Supplier.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.Supplier_Item" Collapsed="true">
+    <Position X="9.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAIAAAAAAAAAEAAAAAAAAEAAAAAAAAAA=</HashCode>
+      <FileName>Supplier_Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.SupplierQuoteItem" Collapsed="true">
+    <Position X="11.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQBAAAACAAAAKAAAEAgAAAEAAAAAAKAEAkAAAAAEkA=</HashCode>
+      <FileName>SupplierQuote.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.SupplierRequest" Collapsed="true">
+    <Position X="13" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAGBAAEAIAAA=</HashCode>
+      <FileName>SupplierRequest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.TemporaryBooking" Collapsed="true">
+    <Position X="14.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEIAAAAYwIDAIAIAAAAAAAAAQAAAAACAAACgAAA=</HashCode>
+      <FileName>TemporaryBooking.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.University" Collapsed="true">
+    <Position X="16.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAIQAAAAAAAAAAAAAAAgAAAAAA=</HashCode>
+      <FileName>University.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.UniversityEmployee" Collapsed="true">
+    <Position X="18.25" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAACAQAAIAEQABAAAAAIAAAAAAgAAAAA=</HashCode>
+      <FileName>UniversityEmployee.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.User" Collapsed="true">
+    <Position X="20" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>User.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.UsersView" Collapsed="true">
+    <Position X="21.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>UsersView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.ExternalLoginConfirmationViewModel" Collapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.ExternalLoginListViewModel" Collapsed="true">
+    <Position X="14.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.SendCodeViewModel" Collapsed="true">
+    <Position X="23.5" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAIAAAAAAAAAAAAAAAAAAIAAAAgAAA=</HashCode>
+      <FileName>ViewModels\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.VerifyCodeViewModel" Collapsed="true">
+    <Position X="23.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAEAAAAAAAgAAAAAAAAAAAAAAIAAAAgAAA=</HashCode>
+      <FileName>ViewModels\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.ForgotViewModel" Collapsed="true">
+    <Position X="21.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.LoginViewModel" Collapsed="true">
+    <Position X="11.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAAAAAAgAAA=</HashCode>
+      <FileName>ViewModels\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.RegisterViewModel" Collapsed="true">
+    <Position X="23.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAACAAAAAAAAAAAAAAAAAAAAACAAAAAgAAIAA=</HashCode>
+      <FileName>ViewModels\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.ResetPasswordViewModel" Collapsed="true">
+    <Position X="11.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAgAAAAAAAAAAACAAAAAAAAIAA=</HashCode>
+      <FileName>ViewModels\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.ForgotPasswordViewModel" Collapsed="true">
+    <Position X="20" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ViewModels\AccountViewModels.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.MessageReplyViewModel" Collapsed="true">
+    <Position X="23.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAQAAAAAAAAAAAAAIAgCAAAAAIQAoAAA=</HashCode>
+      <FileName>ViewModels\MessageReplyViewModel.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.WeekDays" Collapsed="true">
+    <Position X="7.75" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAACAAAAAAAAA=</HashCode>
+      <FileName>WeekDays.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartRes_Official2019Data.ViewModels.StudentProfile" Collapsed="true">
+    <Position X="21.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAIgAAAAAAAQAAACIAAAAAAAAAAAABAgAA=</HashCode>
+      <FileName>StudentProfile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SmartRes_Official2019Data.IApplicationUser" Collapsed="true">
+    <Position X="7.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAACAAAAICAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IApplicationUser.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

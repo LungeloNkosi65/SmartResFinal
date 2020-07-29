@@ -1,0 +1,85 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.University>
+
+<hr />
+@Html.ActionLink("Create New University", "Create")
+<hr />
+
+@using (Html.BeginForm())
+            {
+
+    <h4 style="right">
+        Find : @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </h4>
+
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">Students Checklist</h4>
+
+                <div class="table-overflow">
+                    <table class="table table-bordered table-hover table-sm">
+                        <thead>
+                            <tr class="table-header-row">
+
+
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UniversityName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Email)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.UniversityLogo)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.UniversityName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Email)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                                    </td>
+                                    <td>
+
+                                        @if (item.UniversityLogo != null)
+                                        {
+                                            var base64 = Convert.ToBase64String(item.UniversityLogo);
+                                            var ImgSource = string.Format("data:image/gif;base64,{0}", base64);
+                                            <img src="@ImgSource" width="100" height="100" />
+                                        }
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.UnivbersityId }) |
+                                        @Html.ActionLink("Details", "Details", new { id = item.UnivbersityId })  |
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.UnivbersityId })
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+       

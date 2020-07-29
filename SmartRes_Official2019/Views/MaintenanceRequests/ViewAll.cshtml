@@ -1,0 +1,347 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.MaintenanceRequest>
+
+
+@{
+    ViewBag.Title = "Index";
+    var msg = TempData["message"] ?? string.Empty;
+
+}
+
+
+<script>
+    var message = '@msg';
+    if (message)
+        alert(message);
+</script>
+
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+
+
+
+
+
+
+
+
+<h2>Maintenance Request</h2>
+@using (Html.BeginForm())
+{
+
+    <p>
+        Find: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+
+}
+
+        <div class="kt-portlet__body">
+            <div class="col-xs-12">
+                <a href="~/MaintenanceRequests/Create" class="btn btn-brand btn-elevate btn-icon-sm">
+                    <i class="la la-plus"></i>
+                    New Record
+                </a>
+                <a href="~/MaintenanceRequests/Index" class="btn btn-brand btn-elevate btn-icon-sm">
+                    <i class="la la-plus"></i>
+                    View Not Done
+                </a>
+                @if (User.IsInRole("SystemAdmin") || User.IsInRole("SAN") || User.IsInRole("Admin"))
+                {
+                    <a href="~/MaintenanceRequests/CostStats" class="btn btn-brand btn-elevate btn-icon-sm">
+                        <i class="la la-plus"></i>
+                        Cost Statistics
+                    </a>
+                    <a href="~/MaintenanceSuppliers/Index" class="btn btn-brand btn-elevate btn-icon-sm">
+                        <i class="la la-plus"></i>
+                        Suppliers
+                    </a>
+                    <a href="~/SupplierRequests/Index" class="btn btn-brand btn-elevate btn-icon-sm">
+                        <i class="la la-plus"></i>
+                        Request for supplies
+                    </a>
+                    <a href="~/MaintenanceReservations/Index" class="btn btn-brand btn-elevate btn-icon-sm">
+                        <i class="la la-plus"></i>
+                        View Reservations
+                    </a>
+                }
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card">
+                            <div class="card-block">
+                                <h4 class="card-title">Maintenance Request List</h4>
+
+                                <div class="table-overflow">
+                                    <table class="table table-bordered table-hover table-sm">
+                                        <thead>
+                                            <tr class="table-header-row">
+                                            <tr>
+
+
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Image)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.MainIssue)
+                                                </th>
+                                                @if (User.IsInRole("Employee") || User.IsInRole("System Admin") || User.IsInRole("SAN"))
+                                                {
+                                                    <th>
+                                                        @Html.DisplayNameFor(model => model.RoomNumber)
+                                                    </th>
+
+                                                }
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.DateLoged)
+                                                </th>
+
+
+                                                @if (User.IsInRole("Employee") || User.IsInRole("System Admin") || User.IsInRole("SAN"))
+                                                {
+
+                                                    <th>
+                                                        @Html.DisplayNameFor(model => model.DateFixed)
+                                                    </th>
+                                                }
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.Status)
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.RoomAval)
+                                                </th>
+
+@if (User.IsInRole("Employee") || User.IsInRole("SystemAdmin") || User.IsInRole("SAN"))
+{
+                                                <th>
+                                                    @Html.DisplayNameFor(model => model.IssueCost)
+                                                </th>
+}
+                                                <th>
+                                                    Action
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach (var item in Model)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @if (item.Image != null)
+                                                        {
+                                                            var base64 = Convert.ToBase64String(item.Image);
+                                                            var ImgSource = string.Format("data:image/gif;base64,{0}", base64);
+                                                            <img src="@ImgSource" width="200" height="200" />
+                                                        }
+                                                    </td>
+                                                    @*<td>
+                                                    @Html.DisplayFor(modelItem => item.UserName)
+                                                </td>*@
+
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.MainIssue)
+                                                    </td>
+                                                    @if (User.IsInRole("Employee") || User.IsInRole("SystemAdmnin") || User.IsInRole("SAN"))
+                                                    {
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.RoomNumber)
+                                                        </td>
+
+                                                    }
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.DateLoged)
+                                                    </td>
+
+                                                    @if (User.IsInRole("Employee") || User.IsInRole("SystemAdmnin") || User.IsInRole("SAN"))
+                                                    {
+
+                                                        <td>
+                                                            @Html.DisplayFor(modelItem => item.DateFixed)
+                                                        </td>
+                                                    }
+                                                    <td>
+
+                                                        @if (item.Status == "Dissapproved")
+                                                        {
+                                                            <li>  <a href="@Url.Action("AddDescription", "MaintenanceRequests", new { id = item.MaintenanceId })">Dissaprove</a></li>
+                                                            @*<button type="button" class="colla"><font color ="red"><b>Dissapproved</b></font></button>
+                                                        <div class="contentw
+                                                           <h6>@item.Description </h6>
+                                                        </div>*@
+
+
+
+                                                        }
+                                                        else
+                                                        {
+
+                                                            @Html.DisplayFor(modelItem => item.Status)
+                                                        }
+                                                    </td>
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.RoomAval)
+                                                    </td>
+@if (User.IsInRole("Employee") || User.IsInRole("SystemAdmin") || User.IsInRole("SAN"))
+{
+                                                    <td>
+                                                        @Html.DisplayFor(modelItem => item.IssueCost)
+                                                    </td>
+
+}
+                                                    <td>
+                                                        @if (item.Status != "Approved")
+                                                        {
+                                                            <li class="dropdown">
+                                                                <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Action<span class="caret"></span></a>
+                                                                <ul class="dropdown-menu" role="menu">
+
+                                                                    @if (User.IsInRole("Student"))
+                                                                    {
+                                                                        if (item.Status == "Done")
+                                                                        {
+                                                                            <li>  <a href="@Url.Action("Approve", "MaintenanceRequests", new { id = item.MaintenanceId })">Approve</a></li>
+                                                                            <li>  <a href="@Url.Action("Edit2", "MaintenanceRequests", new { id = item.MaintenanceId })">Dis Approve</a></li>
+
+                                                                        }
+
+                                                                        <li>
+                                                                            <a href="@Url.Action("Details","MaintenanceRequests", new { id=item.MaintenanceId })">Details</a>
+
+                                                                        </li>
+                                                                        <li>
+                                                                            <a href="@Url.Action("Edit","MaintenanceRequests", new { id=item.MaintenanceId })">Edit</a>
+
+                                                                        </li>
+                                                                        @*<li>
+                                                                        <a href="@Url.Action("Delete", "MaintenanceRequests", new { id = item.MaintenanceId })">Delete</a>
+
+                                                                    </li>*@
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        <li>
+                                                                            <a href="@Url.Action("Cost", "MaintenanceRequests", new { id = item.MaintenanceId })">Done</a>
+
+                                                                        </li>
+
+
+
+                                                                    }
+
+                                                                </ul>
+                                                            </li>
+
+                                                        }
+                                                        else
+                                                        {
+                                                            <li class="dropdown">
+                                                                <a class="dropdown-toggle" role="button" aria-expanded="false" href="#" data-toggle="dropdown">Action<span class="caret"></span></a>
+                                                                <ul class="dropdown-menu" role="menu">
+                                                            </li>
+                                                        }
+
+
+
+
+
+
+
+
+
+                                                    </td>
+                                                </tr>
+
+                                            }
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+                    <script type="text/javascript">
+                        $('#my_list').dataTable(
+                            {
+                                dom: 'Bfrtip',
+                                lengthMenu: [
+                                    [10, 25, 50, -1],
+                                    ['10 rows', '25 rows', '50 rows', 'Show all']
+                                ],
+                                buttons: [
+                                    'pageLength', 'pdf', 'print'
+                                ]
+                            }
+                        );
+                        $('#my_list')
+                            .removeClass('display')
+                            .addClass('table table-striped table-hover');
+                    </script>
+                    <script>
+                        for (i = 0; i < 100; i++) {
+                            // Get the modal
+                            var modal = document.getElementById("myModal");
+
+                            // Get the button that opens the modal
+                            var btn = document.getElementById("myBtn");
+
+                            // Get the <span> element that closes the modal
+                            var span = document.getElementsByClassName("close")[0];
+
+                            // When the user clicks the button, open the modal
+                            btn.onclick = function () {
+                                modal.style.display = "block";
+                            }
+
+                            // When the user clicks on <span> (x), close the modal
+                            span.onclick = function () {
+                                modal.style.display = "none";
+                            }
+
+                            // When the user clicks anywhere outside of the modal, close it
+                            window.onclick = function (event) {
+                                if (event.target == modal) {
+                                    modal.style.display = "none";
+                                }
+                            }
+                        }
+                    </script>
+                    <script>
+                        var coll = document.getElementsByClassName("colla");
+                        var i;
+
+                        for (i = 0; i < coll.length; i++) {
+                            coll[i].addEventListener("click", function () {
+                                this.classList.toggle("active");
+                                var content = this.nextElementSibling;
+                                if (content.style.display === "block") {
+                                    content.style.display = "none";
+                                } else {
+                                    content.style.display = "block";
+                                }
+                            });
+                        }
+                    </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

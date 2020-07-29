@@ -1,0 +1,61 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.PriceList>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">Laundry Price List</h4>
+
+                <div class="table-overflow">
+                    <table class="table table-bordered table-hover table-sm">
+                        <thead>
+                            <tr class="table-header-row">
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Cloths.cloth_Type)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.services.service_name)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.price)
+                                </th>
+                                <th></th>
+
+
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+            {
+                                <tr>
+
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Cloths.cloth_Type)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.services.service_name)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.price)
+                                    </td>
+                                    <td>
+                                        <a href="@Url.Action("Details","PriceLists", new { id=item.ID })" rel="tooltip" title="View" class="btn btn-info btn-simple btn-xs"><i class="fa fa-eye">Details</i></a>
+                                        <a href="@Url.Action("Edit","PriceLists", new { id=item.ID })" rel="tooltip" title="Edit" class="btn btn-success btn-simple btn-xs"><i class="fa fa-edit">Edit</i></a>
+                                        <a href="@Url.Action("Delete", "PriceLists", new { id = item.ID })" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs"><i class="fa fa-times">Delete</i></a>
+                                    </td>
+                                </tr>
+
+                            }
+                        </tbody>
+                    </table>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+ </div>
+

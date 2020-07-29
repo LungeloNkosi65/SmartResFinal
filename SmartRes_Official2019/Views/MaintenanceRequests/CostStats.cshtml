@@ -1,0 +1,108 @@
+﻿
+@model IEnumerable<SmartRes_Official2019Data.MaintenanceRequest>
+
+@{
+    ViewBag.Title = "Cost Statistics";
+}
+
+<h2>Cost Statistics</h2>
+@using (Html.BeginForm())
+{
+
+    <p>
+        Search by description: @Html.TextBox("SearchString")
+        <input type="submit" value="Search" />
+    </p>
+
+}
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@<a href="javascript:window.print()">Print Report</a>
+
+</p>
+@*<a href="~/MaintenanceRequests/Cost" class="btn btn-brand btn-elevate btn-icon-sm">
+    <i class="la la-plus"></i>
+    Add Cost
+</a>*@
+<table class="table">
+    <tr>
+        @*<th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomNumber)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.MainIssue)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateLoged)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ResidenceName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmployeeEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DateFixed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusQpproved)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.IssueCost)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>*@
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.RoomNumber)
+                </td>*@
+            <td>
+               @Html.DisplayFor(modelItem => item.MainIssue)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateLoged)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ResidenceName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmployeeEmail)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DateFixed)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusQpproved)
+                </td>*@
+            <td>
+               R @Html.DisplayFor(modelItem => item.IssueCost)
+            </td>
+            @*<td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.MaintenanceId }) |
+                @Html.ActionLink("Details", "Details", new { id = item.MaintenanceId }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.MaintenanceId })
+            </td>*@
+        </tr>
+    }
+
+</table>
+<h3><b>Total:R @Model.Sum(x => x.IssueCost)</b></h3>
+<h3><b>Average expenditure: R @Model.Average(x => x.IssueCost)</b></h3>
+<h5> The least amount spent on a request:R @Model.Min(x => x.IssueCost)</h5>
+<h5> The most amount spent on a request:R @Model.Max(x => x.IssueCost)</h5>
+<img src="@Url.Action("Charter") " alt="chart" />
+

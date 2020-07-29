@@ -1,0 +1,86 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.RoomStudent>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+
+
+
+<p>
+    @if (User.IsInRole("SystemAdmin"))
+    {
+        @Html.ActionLink("Create New", "Create")
+
+    }
+</p>
+<div class="kt-portlet">
+
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title">
+                Student Rooms
+            </h3>
+        </div>
+    </div>
+    <table class="table table-hover table-striped" id="my_list">
+        <thead>
+            <tr class="table-header-row">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Room.RoomNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Student.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date_Assigned)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Room.RoomNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Student.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date_Assigned)
+                    </td>
+                    <td>
+                        <a href=" @Html.ActionLink("Details", "Details", new { id = item.RStudentId }) " rel="tooltip" title="View" class="btn btn-info btn-simple btn-xs"><i class="fa fa-eye"></i></a>
+                        @if (User.IsInRole("SystemAdmin"))
+                        {
+                            <a href="@Html.ActionLink("Edit", "Edit", new { id = item.RStudentId })" rel="tooltip" title="Edit" class="btn btn-success btn-simple btn-xs"><i class="fa fa-edit"></i></a>
+                                    <a href=" @Html.ActionLink("Delete", "Delete", new { id = item.RStudentId }) "rel=" tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs"><i class="fa fa-times"></i></a>
+                        }
+
+                    </td>
+                </tr>
+            }
+
+    </table>
+
+</div>
+
+<script type="text/javascript">
+    $('#my_list').dataTable(
+        {
+            dom: 'Bfrtip',
+            lengthMenu: [
+                [10, 25, 50, -1],
+                ['10 rows', '25 rows', '50 rows', 'Show all']
+            ],
+            buttons: [
+                'pageLength', 'pdf', 'print'
+            ]
+        }
+    );
+    $('#my_list')
+        .removeClass('display')
+        .addClass('table table-striped table-hover');
+</script>

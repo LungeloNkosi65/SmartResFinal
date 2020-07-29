@@ -1,0 +1,144 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.Cloths>
+@{
+    ViewBag.Title = "Cloths";
+
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">Cloths</h4>
+
+                <div class="table-overflow">
+                    <table class="table table-bordered table-hover table-sm">
+                        @using (Html.BeginForm())
+                        {
+
+                            <p style="text-align:right;">
+                                Find : @Html.TextBox("SearchString", "", new { placeholder = "Search by code,type.." })
+                                <input type="submit" value="Search" />
+                            </p>
+
+                        }
+                        </table>
+                        <table class="table table-hover table-striped" id="my_list">
+                            <thead>
+                                <tr class="table-header-row">
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.cloth_image)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.cloth_Type)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.clothCode)
+                                    </th>
+
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+            {
+                                    <tr>
+                                        <td>
+                                            @if (item.cloth_image != null)
+                                            {
+                                                var base64 = Convert.ToBase64String(item.cloth_image);
+                                                var ImgSource = string.Format("data:image/gif;base64,{0}", base64);
+                                                <img src="@ImgSource" width="50" height="50" />
+                                            }
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.cloth_Type)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.clothCode)
+                                        </td>
+
+                                        <td>
+                                            <a href="@Url.Action("Details","Cloths", new { id=item.ID })" rel="tooltip" title="View" class="btn btn-info btn-simple btn-xs">Details<i class="fa fa-eye"></i></a>
+                                            <a href="@Url.Action(" Edit","Cloths", new { id=item.ID })" rel="tooltip" title="Edit" class="btn btn-success btn-simple btn-xs">Edit<i class="fa fa-edit"></i></a>
+                                            <a href="@Url.Action("Delete", "Cloths", new { id = item.ID })" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs">Delete<i class="fa fa-times"></i></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                <script type="text/javascript">
+                    $('#my_list').dataTable(
+                        {
+                            dom: 'Bfrtip',
+                            lengthMenu: [
+                                [10, 25, 50, -1],
+                                ['10 rows', '25 rows', '50 rows', 'Show all']
+                            ],
+                            buttons: [
+                                'pageLength', 'pdf', 'print'
+                            ]
+                        }
+                    );
+                    $('#my_list')
+                        .removeClass('display')
+                        .addClass('table table-striped table-hover');</script>
+
+
+
+                <li class="menu-has-children">
+                    @*<a href="">Add clothes</a>*@
+                    <ul>
+                        <li><a data-toggle="modal" data-target="#activate">Add clothes</a></li>
+                        @*<li class="menu-has-children">
+                                <a href="">Level 2</a>
+                                <ul>
+                                    <li><a href="#">Item One</a></li>
+                                    <li><a href="#">Item Two</a></li>
+                                </ul>
+                            </li>*@
+                    </ul>
+                </li>
+                <div class="modal fade" id="activate" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                @*<button type="button" class="close" data-dismiss="modal">&times;</button>*@
+                                <h4 class="modal-title">Account Activation</h4>
+                            </div>
+
+                            @using (Html.BeginForm("Create", "Cloths", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <div class="modal-body">
+
+
+                                    <label>Cloth Type</label>
+                                    <input type="text" name="cloth_Type" class="w3-border w3-padding" style="width:100%" required placeholder="Enter cloth type" />
+
+                                    <label>Cloth Code</label>
+                                    <input type="text" name="clothCode" class="w3-border w3-padding" style="width:100%" required placeholder="Enter cloth code" />
+
+                                    <label>Image</label>
+                                    <input type="file" id="filelist" name="filelist" />
+
+
+                                    <button class="w3-button" type="submit" style="width:100%;margin-top:5px;background-color: #32BEA6;color:white"> Add Cloth </button>
+
+                                </div>
+                            }
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+

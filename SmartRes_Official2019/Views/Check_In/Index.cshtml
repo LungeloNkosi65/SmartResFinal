@@ -1,0 +1,60 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.Check_In>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="kt-portlet">
+
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title">
+                Student  Check In
+            </h3>
+        </div>
+    </div>
+
+
+        <table class="table table-hover table-striped table-responsive" id="my_list">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Residence.ResName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Student.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Date_In)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Residence.ResName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Student.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Date_In)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.CheckinId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.CheckinId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.CheckinId })
+                    </td>
+                </tr>
+            }
+
+
+        </table>
+    </div>

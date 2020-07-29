@@ -1,0 +1,179 @@
+﻿@model SmartRes_Official2019Data.Medical_Info
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<script type="text/javascript">
+
+
+    function hide() {
+        //alert('hh')
+        document.getElementById("medinfo").style.display='none';
+    }
+
+    function show() {
+        document.getElementById("medinfo").style.display = 'block';
+    }
+</script>
+<div class="row">
+    <div class="col-md-10">
+        <div class="card">
+            <div class="card-heading border bottom">
+                <h4 class="card-title">Add Residence</h4>
+            </div>
+            <div class="card-block">
+                <div class="mrg-top-40">
+                    <div class="row">
+                        <div class="col-md-8 ml-auto mr-auto">
+                            @using (Html.BeginForm())
+            {
+
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+                                    @*<h4>Medical_Info</h4>*@
+                                    <hr />
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+
+                                    </div>
+
+                                    @*<div class="form-group">
+                                            @Html.LabelFor(model => model.Have_Med, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                <div class="checkbox">
+                                                    @Html.EditorFor(model => model.Have_Med)
+                                                    @Html.ValidationMessageFor(model => model.Have_Med, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>*@
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Have_Med, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10" id="A">
+                                            <label>
+                                                <input type="radio" name="Have_med" onclick="hide()" value="No" /><span>No</span>
+                                                <input type="radio" name="Have_med" onclick="show()" value="Yes" /><span>Yes</span>
+
+
+                                            </label>
+
+                                        </div>
+                                    </div>
+
+
+                                    <div id="medinfo">
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Med_Number, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10" id="A">
+
+                                                @Html.EditorFor(model => model.Med_Number, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Med_Number, "", new { @class = "text-danger" })
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Med_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Med_Name, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Med_Name, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(model => model.Owner_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                            <div class="col-md-10">
+                                                @Html.EditorFor(model => model.Owner_Name, new { htmlAttributes = new { @class = "form-control" } })
+                                                @Html.ValidationMessageFor(model => model.Owner_Name, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Illness, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Illness, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Illness, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Illness_Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Illness_Description, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Illness_Description, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Chronic_Medication, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            Yes @Html.RadioButtonFor(model => model.Chronic_Medication, "Yes", new { htmlAttributes = new { @class = "form-control" } })
+                                            <br />
+                                            No @Html.RadioButtonFor(model => model.Chronic_Medication, "Yes", new { htmlAttributes = new { @class = "form-control" } })
+
+                                            @Html.ValidationMessageFor(model => model.Chronic_Medication, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Chronic_Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Chronic_Description, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Chronic_Description, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Parent_Details, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Parent_Details, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Parent_Details, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Parent_Name, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            @Html.EditorFor(model => model.Parent_Name, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Parent_Name, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" value="Submit" class="btn btn-default" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                            }
+                           
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    <script>
+                        $('input[tyoe="radio"]').change(function () {
+                            var value = $(this).val();
+                            $('#' + $(this).val()).children('input[type="text"]').removeAttr('disabled');
+                        }
+                         $('input[type="radio"]').each(function () {
+                             if (this.value != value) {
+                                 $('#' + this.value).children('input[type="text"]').attr('disabled', 'disabled');
+                             }
+                         })
+
+                        });
+
+
+                    </script>
+
+
+

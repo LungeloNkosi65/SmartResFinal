@@ -1,0 +1,88 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.MaintenanceSuppliers>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<div class="kt-portlet">
+
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title">
+                Maintenance Suppliers
+            </h3>
+        </div>
+    </div>
+    @using (Html.BeginForm())
+    {
+
+        <p style="text-align:right;">
+            Find : @Html.TextBox("SearchString", "", new { placeholder = "Search by Supplier,product" })
+            <input type="submit" value="Search" />
+        </p>
+
+    }
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-block">
+                    <h4 class="card-title">Maintenance Suppliers </h4>
+
+                    <div class="table-overflow">
+                        <table class="table table-bordered table-hover table-sm">
+                            <tr>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Supplier)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Supplier_Product)
+                                </th>
+                                @*<th>
+                                        @Html.DisplayNameFor(model => model.Product_Cost)
+                                    </th>
+                                    <th>
+                                        @Html.DisplayNameFor(model => model.Product_Quantity)
+                                    </th>*@
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Supplier_Email)
+                                </th>
+                                <th></th>
+                            </tr>
+
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Supplier)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Supplier_Product)
+                                    </td>
+                                    @*<td>
+                                            @Html.DisplayFor(modelItem => item.Product_Cost)
+                                        </td>
+                                        <td>
+                                            @Html.DisplayFor(modelItem => item.Product_Quantity)
+                                        </td>*@
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Supplier_Email)
+                                    </td>
+                                    <td>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.SupplierID }) |
+                                        @*@Html.ActionLink("Details", "Details", new { id=item.SupplierID }) |*@
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.SupplierID })
+                                    </td>
+                                </tr>
+                            }
+
+                        </table>
+                    </div>
+                    </div>
+                    </div>
+            </div>
+</div>
+</div>

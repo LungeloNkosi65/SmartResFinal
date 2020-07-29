@@ -1,0 +1,109 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.StudentCheckIn>
+
+@{
+    ViewBag.Title = "Checked In Students";
+}
+
+<p>
+    @if (User.IsInRole("SystemAdmin"))
+    {
+
+        <a class="btn btn-default" href="@Url.Action("Create","StudentCheckIns")">
+            <i class="fa fa-plus"></i>
+            Create New
+        </a>
+
+
+            @*@Html.ActionLink("Create New", "Create")*@
+
+    }
+</p>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-block">
+                <h4 class="card-title">Student Checked In</h4>
+               
+                <div class="table-overflow">
+                    <table class="table table-bordered table-hover table-sm">
+                        <thead>
+                            <tr class="table-header-row">
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Residence.ResName)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.RooNumber)
+                                </th>
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Student.StudentNumber)
+                                </th>
+
+                                <th>
+                                    @Html.DisplayNameFor(model => model.Date_In)
+                                </th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Residence.ResName)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.RooNumber)
+                                    </td>
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Student.StudentNumber)
+                                    </td>
+
+                                    <td>
+                                        @Html.DisplayFor(modelItem => item.Date_In)
+                                    </td>
+                                    @if (User.IsInRole("SystemAdmin") || User.IsInRole("SAN"))
+                                    {
+                                        <td>
+
+
+                                            <a href="@Url.Action("Details","StudentCheckIns", new { id=item.CheckIn_Id })" rel="tooltip" title="View" class="btn btn-info btn-simple btn-xs"><i class="fa fa-eye"> Details</i></a>
+                                            <a href="@Url.Action("Edit","StudentCheckIns", new { id=item.CheckIn_Id })" rel="tooltip" title="Edit" class="btn btn-success btn-simple btn-xs"><i class="fa fa-edit">Edit</i></a>
+                                            <a href="@Url.Action("Delete", "StudentCheckIns", new { id = item.CheckIn_Id })" rel="tooltip" title="Remove" class="btn btn-danger btn-simple btn-xs"><i class="fa fa-times">Delete</i></a>
+
+
+
+                                        </td>
+                                    }
+
+                                </tr>
+                            }
+                        </tbody>
+
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+  

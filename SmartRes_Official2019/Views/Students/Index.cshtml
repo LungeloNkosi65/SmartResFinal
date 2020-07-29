@@ -1,0 +1,174 @@
+﻿@model IEnumerable<SmartRes_Official2019Data.Student>
+@using SmartRes_Official2019Data;
+@using SmartRes_Official2019Logic;
+
+@using Microsoft.AspNet.Identity
+
+
+
+
+
+@{
+    ApplicationDbContext db = new ApplicationDbContext();
+    BsLogic Bs = new BsLogic();
+    Logic lo = new Logic();
+    var user = User.Identity.GetUserName();
+    ViewBag.Title = "Students";
+    var msg = TempData["message"] ?? string.Empty;
+    var st = db.Students.Where(x => x.Email ==user ).FirstOrDefault();
+
+}
+
+
+<script>
+    var message = '@msg';
+    if (message)
+        alert(message);
+</script>
+<div class="kt-portlet">
+    <div class="kt-portlet__head">
+        <div class="kt-portlet__head-label">
+            <h3 class="kt-portlet__head-title">
+                Profile
+            </h3>
+        </div>
+    </div>
+
+
+    <h2>
+        @if (User.IsInRole("Student"))
+        {
+         
+
+        }
+        else if (User.IsInRole("SystemAdmin"))
+        {
+            <h21> Student Details</h21>
+        }
+    </h2>
+
+    <p>
+        @if (User.IsInRole("Student") && lo.StudentNoExists(User.Identity.GetUserName())==false)
+        {
+            @Html.ActionLink("Complete Profile", "Create")
+
+        }
+        else if (User.IsInRole("SystemAdmin"))
+        {
+            @Html.ActionLink("Create New", "Create")
+
+        }
+    </p>
+
+   
+    <div class="row center">
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <style>
+                .card {
+                    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+                    max-width: 300px;
+                    margin: auto;
+                    text-align: center;
+                    font-family: arial;
+                }
+
+                .title {
+                    color: grey;
+                    font-size: 18px;
+                }
+
+                button {
+                    border: none;
+                    outline: 0;
+                    display: inline-block;
+                    padding: 8px;
+                    color: white;
+                    background-color: #000;
+                    text-align: center;
+                    cursor: pointer;
+                    width: 100%;
+                    font-size: 18px;
+                }
+
+                a {
+                    text-decoration: none;
+                    font-size: 22px;
+                    color: black;
+                }
+
+                    button:hover, a:hover {
+                        opacity: 0.7;
+                    }
+            </style>
+        </head>
+        <body>
+
+
+            <div class="card">
+                @foreach (var item in Model)
+                {
+                    if (item.UserPhoto != null)
+                    {
+                        var base64 = Convert.ToBase64String(item.UserPhoto);
+                        var ImgSource = string.Format("data:image/gif;base64,{0}", base64);
+                        <img src="@ImgSource" alt="John" style="width:100%">
+                    }
+
+                    <h1>@Html.DisplayFor(modelItem => item.StudentNumber)</h1>
+                            <p class="title">Student Profile</p>
+                            <p>@Html.DisplayFor(modelItem => item.Surname) </p>
+                            <p>@Html.DisplayFor(modelItem => item.Email) </p>
+                            <p>@Html.DisplayFor(modelItem => item.Name) </p>
+                            <p>@Html.DisplayFor(modelItem => item.ResName) </p>
+                            <p>@Html.DisplayFor(modelItem => item.RooNumber) </p>
+
+                            <div style="margin: 24px 0;">
+                                @*<a href="#"><i class="fa fa-dribbble"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-linkedin"></i></a>
+                                    <a href="#"><i class="fa fa-facebook"></i></a>*@
+                            </div>
+
+                            <a href="~/Students/AllStudents" class="btn btn-brand btn-elevate btn-icon-sm">
+                                <i class="la la-plus"></i>
+                                View More details
+                            </a>
+                }
+
+            </div>
+
+        </body>
+    </html>
+
+
+
+
+
+
+
+
+</div>
+
+</div>
+
+
+<script type="text/javascript">
+    $('#my_list').dataTable(
+        {
+            dom: 'Bfrtip',
+            lengthMenu: [
+                [10, 25, 50, -1],
+                ['10 rows', '25 rows', '50 rows', 'Show all']
+            ],
+            buttons: [
+                'pageLength', 'pdf', 'print'
+            ]
+        }
+    );
+    $('#my_list')
+        .removeClass('display')
+        .addClass('table table-striped table-hover');
+</script>

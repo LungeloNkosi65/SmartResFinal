@@ -1,0 +1,65 @@
+﻿@model SmartRes_Official2019Data.MaintenanceSuppliers
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="col-md-10">
+    <div class="card">
+        <div class="card-heading border bottom">
+            <h4 class="card-title">Add Supplier</h4>
+        </div>
+        <div class="card-block">
+            <div class="mrg-top-40">
+                @using (Html.BeginForm())
+                {
+                    @Html.AntiForgeryToken()
+
+
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Supplier, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Supplier, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Supplier, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Supplier_Product, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Supplier_Product, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Supplier_Product, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Supplier_Email, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Supplier_Email, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.Supplier_Email, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                         
+                            <button type="submit" class="btn btn-success">
+                                <i class="icon-circle-arrow-right icon-large"></i> Next
+                            </button>
+                        </div>
+                    </div>
+
+                }
+                </div>
+            </div>
+        </div>
+    </div>
+
+                <div>
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+
+                @section Scripts {
+                    @Scripts.Render("~/bundles/jqueryval")
+                }

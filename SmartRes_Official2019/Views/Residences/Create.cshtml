@@ -1,0 +1,127 @@
+﻿@model SmartRes_Official2019Data.Residence
+<div class="row">
+    <div class="col-md-10" >
+        <div class="card">
+            <div class="card-heading border bottom">
+                <h4 class="card-title">Add Residence</h4>
+            </div>
+            <div class="card-block">
+                <div class="mrg-top-40">
+                    <div class="row">
+                        <div class="col-md-8 ml-auto mr-auto">
+                            @using (Html.BeginForm("Create", "Residences", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                            {
+                                @Html.AntiForgeryToken()
+
+                                <div class="form-horizontal">
+                                    @*<h4>Residence</h4>*@
+                                    <hr />
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.UnivbersityId, "University Name", htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-7">
+                                            @Html.DropDownList("UnivbersityId", null, htmlAttributes: new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.UnivbersityId, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ResName, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-7">
+                                            @Html.EditorFor(model => model.ResName, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.ResName, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ResAddress, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-7">
+                                            @Html.EditorFor(model => model.ResAddress, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.ResAddress, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.Capacity, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-5">
+                                            @Html.EditorFor(model => model.Capacity, new { htmlAttributes = new { @class = "form-control" } })
+                                            @Html.ValidationMessageFor(model => model.Capacity, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Gender_Allocation, new { @class = "col-md-2 control-label" })
+                                        <div class="col-md-5">
+                                            @Html.DropDownListFor(m => m.Gender_Allocation, new[] {
+                        new SelectListItem (){ Text = "Female", Value ="Female"},
+                        new SelectListItem () { Text = "Male", Value ="Male"},
+                        new SelectListItem() { Text = "Both", Value = "Both" }},
+
+                        "--Select Gender Allocation--", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.Gender_Allocation, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        @Html.LabelFor(model => model.ResidentPhoto, htmlAttributes: new { @class = "control-label col-md-2" })
+                                        <div class="col-md-10">
+                                            <div>
+                                                <input type="file" id="filelist" name="filelist" />
+                                            </div>
+                                            @Html.ValidationMessageFor(model => model.ResidentPhoto, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            @*<input type="submit" value="Add" class="btn btn-default" />*@
+                                            <button type="submit" class="btn btn-success">
+                                                <i class="icon-circle-arrow-right icon-large"></i> Next
+                                            </button>
+                                        </div>
+                                    </div>
+                                 
+                                </div>
+                            }
+                      
+                        </div>
+
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+                <div>
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+
+                @section Scripts {
+                    @Scripts.Render("~/bundles/jqueryval")
+                    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false&libraries=places"></script>
+
+                    <script type="text/javascript">
+
+                        google.maps.event.addDomListener(window, 'load', function () {
+                            var options = {
+                                types: ['(cities)'],
+                                componentRestrictions: { country: "ZA" }
+                            };
+
+                            var input = document.getElementById('ResAddress');
+
+                            var places = new google.maps.places.Autocomplete(input, options);
+
+
+                        });
+                    </script>
+
+                }
+
+
+
+
